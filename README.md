@@ -1,7 +1,7 @@
 # Songbird — guess a bird by a voice
 
 ## Technologies
-- JavaScript
+- TypeScript
 - React
 - Webpack
 - Babel
