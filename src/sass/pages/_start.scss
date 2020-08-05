@@ -1,0 +1,21 @@
+.page_start {
+  text-align: center;
+
+  @include flex($direction: column);
+
+  .logo {
+    margin-bottom: 3rem;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+
+    @include font($size: 7rem, $line-height: 100%);
+  }
+
+  p {
+    margin-bottom: 6rem;
+
+    @include font($family: $font-secondary, $size: 3.2rem, $line-height: 130%, $spacing: 0.02rem);
+  }
+}

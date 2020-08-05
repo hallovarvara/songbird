@@ -7,6 +7,15 @@ html {
 }
 
 body {
+  min-width: 100vw;
+  min-height: 100vh;
+
   color: $color-light;
-  background-color: $color-dark;
+
+  @include background-gradient();
+  @include flex();
+}
+
+h1 {
+  @extend %hide;
 }

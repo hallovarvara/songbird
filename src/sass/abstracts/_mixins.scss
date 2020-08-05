@@ -1,20 +1,48 @@
-@mixin button-shadow(
-  $color1: rgba(#FF74E0, 80%),
-  $color2: rgba(#FF9559, 55%),
-  $color3: rgba($color-light, 25%)
+@mixin flex($direction: row, $justify-content: center, $align-items: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin background(
+  $url: none,
+  $color: transparent,
+  $position: center,
+  $repeat: no-repeat,
+  $size: auto
 ) {
-  box-shadow: 0 2px 34px $color1,
-    0 4px 34px $color2,
-    inset 0 4px 13px $color3;
+  background-color: $color;
+  background-repeat: $repeat;
+  background-position: $position;
+  background-image: $url;
+  background-size: $size;
+}
+
+@mixin background-gradient(
+  $color1: #693322,
+  $color2: #2f1648,
+  $color-fill: #4b2436,
+  $degrees: 180deg
+) {
+  background: linear-gradient($degrees, $color1 0%, $color2 100%), $color-fill;
+}
+
+@mixin button-shadow(
+  $color1: rgba(#ff74e0, 0.8),
+  $color2: rgba(#ff9559, 0.55),
+  $color3: rgba($color-light, 0.25)
+) {
+  box-shadow: 0 2px 34px $color1, 0 4px 34px $color2, inset 0 4px 13px $color3;
 }
 
 @mixin font(
-  $size: 1.6rem,
+  $size: 2.6rem,
   $weight: normal,
   $style: normal,
   $family: $font-primary,
-  $line-height: normal,
-  $spacing: normal
+  $line-height: 120%,
+  $spacing: 0.08rem
 ) {
   font-weight: $weight;
   font-size: $size;
@@ -28,7 +56,7 @@
   transition: $properties $animation-time ease-in-out;
 }
 
-/* MEDIA */
+/* Responsive media */
 
 @mixin media-min {
   @media (max-width: $width-min) {

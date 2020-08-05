@@ -1,0 +1,18 @@
+.app {
+  padding-bottom: 10rem;
+
+  @include flex($direction: column);
+  @include font();
+}
+
+.app__content {
+  z-index: 2;
+}
+
+.app__background {
+  filter: blur(0.8rem);
+  opacity: 0.15;
+
+  @extend %position-fixed;
+  @include background($url: url('../../assets/bg-app.jpg'), $size: cover);
+}

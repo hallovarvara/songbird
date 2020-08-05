@@ -49,5 +49,8 @@ module.exports = {
         tsx: 'never',
       },
     ],
+
+    'jsx-a11y/media-has-caption': 0,
+    'react/state-in-constructor': 0,
   },
 };

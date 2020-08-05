@@ -1,15 +1,24 @@
 import React from 'react';
 
-import { getAudioPath } from '../../helpers/functions';
+import { constants } from '../../helpers/constants';
+import { IHandleClick } from '../../helpers/interfaces';
 
-const StartPage: React.FC = () => {
+import { ReactComponent as Logo } from '../../assets/songbird-logo.svg';
+import Button from '../../components/basic/Button';
+
+const StartPage = ({ handleClick }: IHandleClick) => {
+  const { title, subtitle, startGame } = constants;
+
   return (
-    <>
-      <span className="test">Hello</span>
-      <audio controls>
-        <source src={getAudioPath('house-md')} type="audio/mpeg" />
-      </audio>
-    </>
+    <div className="page_start">
+      <Logo />
+      <h2>{title.toLowerCase()}</h2>
+      <p>{subtitle}</p>
+      <Button
+        label={startGame}
+        handleClick={handleClick}
+      />
+    </div>
   );
 };
 

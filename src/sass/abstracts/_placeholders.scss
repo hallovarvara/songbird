@@ -1,0 +1,26 @@
+%position-fixed {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+%hide {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(1px 1px 1px 1px); // IE6, IE7
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+%button-shining {
+  background: linear-gradient(90deg, #f441a5, #ffeb3b, #03a9f4, #f441a5), $color-dark;
+  background-size: 400%;
+  border-radius: 5rem;
+}

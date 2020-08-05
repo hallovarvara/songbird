@@ -1,18 +1,21 @@
-import { ObjectOfStrings } from './interfaces';
+import { IObjectOfStrings } from './interfaces';
 
 export const defaultQuestionsCount: number = 6;
 
-export const constants: ObjectOfStrings = {
+export const constants: IObjectOfStrings = {
   logo: 'Лого',
   score: 'Баллы',
   chooseAnswer: 'Выберите сериал ',
+  title: 'Угадай сериал',
+  subtitle: 'по саундтреку',
+  startGame: 'Начать игру',
 };
 
-export const categories: ObjectOfStrings = {
+export const categories: IObjectOfStrings = {
   detective: 'Детектив',
-  fantastic: 'Фантастика и фэнтези',
+  fantastic: 'Фантастика',
   horror: 'Ужасы',
   comedy: 'Комедия',
   medicine: 'Медицина',
-  twentiethCentury: '20 век',
+  twentiethCentury: 'Ретро',
 };

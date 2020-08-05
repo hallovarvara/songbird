@@ -1,5 +1,5 @@
 /* Fonts */
-@import 'assets/fonts/fonts';
+@import './assets/fonts/fonts';
 
 /* Abstracts */
 @import './sass/abstracts/variables';
@@ -15,6 +15,12 @@
 @import './sass/layout/grid';
 @import './sass/layout/header';
 @import './sass/layout/forms';
+@import './sass/layout/app';
+
+/* Pages */
+@import './sass/pages/start';
+@import './sass/pages/play';
+@import './sass/pages/end';
 
 /* Components */
 @import './sass/components/buttons';

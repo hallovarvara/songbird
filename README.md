@@ -1,4 +1,4 @@
-# Songbird — guess a bird by a voice
+# Guess TV show by main musical theme
 
 ## Technologies
 - TypeScript
