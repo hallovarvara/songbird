@@ -1,14 +1,7 @@
 import { categories } from './constants';
 import { ObjectOfStrings } from './interfaces';
 
-const {
-  detective,
-  fantastic,
-  horror,
-  comedy,
-  medicine,
-  twentiethCentury,
-} = categories;
+const { detective, fantastic, horror, comedy, medicine, twentiethCentury } = categories;
 
 // TODO collect data: images
 // TODO collect data: audio
@@ -22,7 +15,7 @@ const data: ObjectOfStrings[] = [
     description:
       'Гениальный диагност-социопат пренебрегает правилами, врачебной этикой и моралью, лишь бы поставить больному верный диагноз и, если повезет, спасти его',
     imagePath: '',
-    audioPath: '',
+    audioPath: 'house-md',
   },
   {
     title: 'Хороший доктор',
@@ -35,7 +28,7 @@ const data: ObjectOfStrings[] = [
   },
   {
     title: 'Анатомия страсти',
-    originalTitle: 'Grey\'s Anatomy',
+    originalTitle: "Grey's Anatomy",
     category: medicine,
     description:
       'Каково быть женщиной в мире гениальных врачей-мужчин? А если ты еще интерн и дочь известного врача, требования запредельно высоки. Микс отношений и медицины в городской больнице Сиэтла',

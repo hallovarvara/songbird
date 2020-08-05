@@ -1,0 +1,26 @@
+/* Colors */
+$color-dark: #000000;
+$color-light: #ffffff;
+$color-success: #ffdf8e;
+$color-fail: #f5927e;
+$color-inactive: #dadada;
+
+/* Gradient */
+$gradient-main: linear-gradient(
+  90deg,
+  $color-fail 0%,
+  #9225ff 100%
+);
+
+/* Fonts */
+$font-primary: 'Strong', 'Open Sans Condensed', 'OpenSansCondensedLocal', 'Arial', sans-serif;
+$font-secondary: 'Pacifico', 'Baskerville', 'Georgia', sans-serif;
+
+/* Animation */
+$animation-time: 0.3s;
+
+/* Devices' widths */
+$width-min: 320px;
+$width-mobile: 520px;
+$width-tablet: 860px;
+$width-desktop: 1200px;

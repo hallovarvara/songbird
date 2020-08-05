@@ -1,0 +1,55 @@
+@mixin button-shadow(
+  $color1: rgba(#FF74E0, 80%),
+  $color2: rgba(#FF9559, 55%),
+  $color3: rgba($color-light, 25%)
+) {
+  box-shadow: 0 2px 34px $color1,
+    0 4px 34px $color2,
+    inset 0 4px 13px $color3;
+}
+
+@mixin font(
+  $size: 1.6rem,
+  $weight: normal,
+  $style: normal,
+  $family: $font-primary,
+  $line-height: normal,
+  $spacing: normal
+) {
+  font-weight: $weight;
+  font-size: $size;
+  font-family: $family;
+  font-style: $style;
+  line-height: $line-height;
+  letter-spacing: $spacing;
+}
+
+@mixin transition($properties: all) {
+  transition: $properties $animation-time ease-in-out;
+}
+
+/* MEDIA */
+
+@mixin media-min {
+  @media (max-width: $width-min) {
+    @content;
+  }
+}
+
+@mixin media-mobile {
+  @media (max-width: $width-mobile) {
+    @content;
+  }
+}
+
+@mixin media-tablet {
+  @media (max-width: $width-tablet) {
+    @content;
+  }
+}
+
+@mixin media-desktop {
+  @media (max-width: $width-desktop) {
+    @content;
+  }
+}
