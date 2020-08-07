@@ -14,8 +14,8 @@ export const constants: IObjectOfStrings = {
 export const categories: IObjectOfStrings = {
   detective: 'Детектив',
   fantastic: 'Фантастика',
-  horror: 'Ужасы',
+  drama: 'Драма',
   comedy: 'Комедия',
   medicine: 'Медицина',
-  twentiethCentury: 'Ретро',
+  final: 'Финал',
 };
