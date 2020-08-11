@@ -16,6 +16,7 @@ export interface IButton extends IHandleClick {
   label: string;
 }
 
+export interface IGameProgress { round: number }
 export interface IQuestionCurrent { currentQuestion: string }
 export interface IScore { score: number }
 
@@ -24,4 +25,4 @@ export interface IHeader {
   currentQuestion: string,
 }
 
-export interface IPlayPage extends IHeader {}
+export interface IPlayPage extends IHeader, IGameProgress {}

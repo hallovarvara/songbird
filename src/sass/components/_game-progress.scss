@@ -1,0 +1,7 @@
+.game-progress {
+  height: 0.5rem;
+
+  background-color: $color-light;
+
+  @extend %position-fixed;
+}

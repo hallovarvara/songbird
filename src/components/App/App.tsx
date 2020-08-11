@@ -11,7 +11,7 @@ class App extends React.Component {
   initialState = {
     isPlaying: false,
     isGameEnded: false,
-    round: -1,
+    round: 0,
     score: 0,
     order: Object.keys(categories).map((key) => ({ category: key, points: 0 })),
     shows: getCategorizedShows(),
@@ -23,8 +23,8 @@ class App extends React.Component {
 
   startGame = (): void => {
     this.setState({
+      ...this.initialState,
       isPlaying: true,
-      round: 0,
     });
   };
 
@@ -41,6 +41,7 @@ class App extends React.Component {
         <PlayPage
           score={score}
           currentQuestion={currentQuestion}
+          round={round}
         />
       );
     } else if (isGameEnded) {
