@@ -4,27 +4,45 @@ import StartPage from '../../pages/Start';
 import EndPage from '../../pages/End';
 import PlayPage from '../../pages/Play';
 
-import { constants } from '../../helpers/constants';
+import { constants, categories } from '../../helpers/constants';
+import { getCategorizedShows } from '../../helpers/dataService';
 
 class App extends React.Component {
-  state = {
-    isGameStarted: false,
+  initialState = {
+    isPlaying: false,
     isGameEnded: false,
-  }
+    round: -1,
+    score: 0,
+    order: Object.keys(categories).map((key) => ({ category: key, points: 0 })),
+    shows: getCategorizedShows(),
+  };
+
+  state = {
+    ...this.initialState,
+  };
 
   startGame = (): void => {
     this.setState({
-      isGameStarted: true,
+      isPlaying: true,
+      round: 0,
     });
-  }
+  };
 
   render(): React.ReactNode {
     const { title, subtitle } = constants;
-    const { isGameStarted, isGameEnded } = this.state;
+    const {
+      isPlaying, isGameEnded, score, round, order,
+    } = this.state;
+    const currentQuestion = categories[order[round]?.category];
 
     let currentPage;
-    if (isGameStarted) {
-      currentPage = <PlayPage />;
+    if (isPlaying) {
+      currentPage = (
+        <PlayPage
+          score={score}
+          currentQuestion={currentQuestion}
+        />
+      );
     } else if (isGameEnded) {
       currentPage = <EndPage />;
     } else {
@@ -42,17 +60,5 @@ class App extends React.Component {
     );
   }
 }
-// const App: React.FC = () => {
-//   const { title, subtitle } = constants;
-//   return (
-//     <>
-//       <div className="app__content">
-//         <h1>{`${title} ${subtitle}`}</h1>
-//         <StartPage  />
-//       </div>
-//       <div className="app__background" />
-//     </>
-//   );
-// };
 
 export default App;

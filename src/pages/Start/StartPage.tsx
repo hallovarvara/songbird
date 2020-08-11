@@ -6,7 +6,7 @@ import { IHandleClick } from '../../helpers/interfaces';
 import { ReactComponent as Logo } from '../../assets/songbird-logo.svg';
 import Button from '../../components/basic/Button';
 
-const StartPage = ({ handleClick }: IHandleClick) => {
+const StartPage: React.FC<IHandleClick> = ({ handleClick }) => {
   const { title, subtitle, startGame } = constants;
 
   return (

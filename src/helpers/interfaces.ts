@@ -15,3 +15,13 @@ export interface IHandleClick {
 export interface IButton extends IHandleClick {
   label: string;
 }
+
+export interface IQuestionCurrent { currentQuestion: string }
+export interface IScore { score: number }
+
+export interface IHeader {
+  score: number,
+  currentQuestion: string,
+}
+
+export interface IPlayPage extends IHeader {}

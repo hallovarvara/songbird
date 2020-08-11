@@ -52,5 +52,6 @@ module.exports = {
 
     'jsx-a11y/media-has-caption': 0,
     'react/state-in-constructor': 0,
+    'react/prop-types': 0,
   },
 };

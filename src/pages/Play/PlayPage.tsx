@@ -1,8 +1,12 @@
 import React from 'react';
 
-const PlayPage: React.FC = () => (
+import Header from '../../components/Header';
+
+import { IPlayPage } from '../../helpers/interfaces';
+
+const PlayPage:React.FC<IPlayPage> = ({ score, currentQuestion }) => (
   <div className="page_play">
-    Вы играете
+    <Header score={score} currentQuestion={currentQuestion} />
   </div>
 );
 

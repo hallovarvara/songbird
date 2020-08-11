@@ -4,11 +4,11 @@ export const defaultQuestionsCount: number = 6;
 
 export const constants: IObjectOfStrings = {
   logo: 'Лого',
-  score: 'Баллы',
   chooseAnswer: 'Выберите сериал ',
   title: 'Угадай сериал',
   subtitle: 'по саундтреку',
   startGame: 'Начать игру',
+  currentQuestion: 'текущий вопрос',
 };
 
 export const categories: IObjectOfStrings = {
