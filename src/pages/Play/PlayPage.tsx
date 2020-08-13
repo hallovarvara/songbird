@@ -2,13 +2,26 @@ import React from 'react';
 
 import Header from '../../components/Header';
 
-import { IPlayPage } from '../../helpers/interfaces';
+import { IPlayPage, IShow } from '../../helpers/interfaces';
 import GameProgress from '../../components/GameProgress';
+import Question from '../../components/Question';
 
-const PlayPage:React.FC<IPlayPage> = ({ score, currentQuestion, round }) => (
+const getAnswerShow = (shows: IShow[] | undefined): IShow | undefined => {
+  let answerShow;
+  if (shows) {
+    [answerShow] = shows.filter((show) => show.isAnswer);
+  }
+  return answerShow;
+};
+
+const PlayPage: React.FC<IPlayPage> = ({ score, currentRound }) => (
   <div className="page_play">
-    <GameProgress round={round} />
-    <Header score={score} currentQuestion={currentQuestion} />
+    <GameProgress round={currentRound?.number || 0} />
+    <Header score={score} currentRound={currentRound} />
+    <Question
+      answer={getAnswerShow(currentRound?.shows)}
+      isGuessed={currentRound?.isGuessed || false}
+    />
   </div>
 );
 

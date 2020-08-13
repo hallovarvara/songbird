@@ -1,0 +1,35 @@
+.question {
+  @include flex($direction: column);
+}
+
+.question__content {
+  width: 100%;
+  height: 136px;
+
+  @include flex();
+
+  img {
+    max-height: 100%;
+
+    border-top-left-radius: $border-radius;
+  }
+}
+
+.question__info {
+  flex-grow: 1;
+  min-height: 100%;
+
+  color: $color-dark;
+  background-color: $color-light;
+  border-top-right-radius: $border-radius;
+
+  @include flex($direction: column);
+
+  p {
+    margin-bottom: 1.5rem;
+  }
+}
+
+.question__button {
+  border-radius: 0 0 $border-radius $border-radius;
+}

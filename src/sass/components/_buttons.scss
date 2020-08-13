@@ -44,3 +44,27 @@
     background-position: 400%;
   }
 }
+
+.button:disabled,
+.button[disabled] {
+  background: $color-inactive;
+
+  &:hover {
+    background: $color-inactive;
+    animation: none;
+    transition: none;
+  }
+
+  &:hover::before,
+  &::before {
+    background: $color-inactive;
+
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+
+    filter: none;
+    animation: none;
+  }
+}

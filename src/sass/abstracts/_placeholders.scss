@@ -20,5 +20,5 @@
 %button-shining {
   background: linear-gradient(90deg, #f441a5, #ffeb3b, #03a9f4, #f441a5), $color-dark;
   background-size: 400%;
-  border-radius: 5rem;
+  border-radius: $border-radius;
 }

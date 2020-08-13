@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'Pacifico';
   src: local('Pacifico Regular'),
-  local('Pacifico-Regular'),
-  url('./pacifico.ttf') format('truetype');
+    local('Pacifico-Regular'),
+    url('../../fonts/pacifico.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
@@ -10,8 +10,8 @@
 @font-face {
   font-family: 'Strong';
   src: local('Strong Regular'),
-  local('Strong-Regular'),
-  url('./strong.ttf') format('truetype');
+    local('Strong-Regular'),
+    url('../../fonts/strong.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
@@ -19,8 +19,8 @@
 @font-face {
   font-family: 'OpenSansCondensedLocal';
   src: local('Open Sans Condensed Light'),
-  local('Open-Sans-Condensed-Light'),
-  url('./open-sans-condensed.ttf') format('truetype');
+    local('Open-Sans-Condensed-Light'),
+    url('../../fonts/open-sans-condensed.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }

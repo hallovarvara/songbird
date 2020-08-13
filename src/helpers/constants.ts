@@ -9,6 +9,7 @@ export const constants: IObjectOfStrings = {
   subtitle: 'по саундтреку',
   startGame: 'Начать игру',
   currentQuestion: 'текущий вопрос',
+  nextQuestion: 'Следующий вопрос',
 };
 
 export const categories: IObjectOfStrings = {

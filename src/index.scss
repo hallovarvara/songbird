@@ -1,5 +1,5 @@
 /* Fonts */
-@import './assets/fonts/fonts';
+@import './sass/base/fonts';
 
 /* Abstracts */
 @import './sass/abstracts/variables';
@@ -26,3 +26,4 @@
 @import './sass/components/buttons';
 @import './sass/components/score';
 @import './sass/components/game-progress';
+@import 'sass/components/question';

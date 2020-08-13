@@ -16,9 +16,6 @@ $gradient-main: linear-gradient(
 $font-primary: 'Strong', 'Open Sans Condensed', 'OpenSansCondensedLocal', 'Arial', sans-serif;
 $font-secondary: 'Pacifico', 'Baskerville', 'Georgia', sans-serif;
 
-/* Animation */
-$animation-time: 0.3s;
-
 /* Devices' widths */
 $width-min: 320px;
 $width-mobile: 520px;
@@ -27,3 +24,7 @@ $width-desktop: 1200px;
 
 /* Button shining ✨ */
 $shining-size: -0.05rem;
+
+/* Settings */
+$border-radius: 5rem;
+$animation-time: 0.3s;
