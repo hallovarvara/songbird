@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { constants } from '../../helpers/constants';
-import unguessedImage from '../../images/unguessed.svg';
+import unguessedImage from '../../assets/images/unguessed.svg';
 import AudioPlayer from '../AudioPlayer';
 import { IQuestion, IShow } from '../../helpers/interfaces';
 import Button from '../basic/Button';
-import { getAudioPath, getImagePath } from '../../helpers/functions';
+import { getAudioPath, getImagePath } from '../../helpers/utils';
 
 const getRoundData = (data: IShow | undefined, isGuessed: boolean) => {
   let roundData = {
@@ -25,10 +25,7 @@ const getRoundData = (data: IShow | undefined, isGuessed: boolean) => {
   return roundData;
 };
 
-const Question: React.FC<IQuestion> = ({
-  answer,
-  isGuessed,
-}) => {
+const Question: React.FC<IQuestion> = ({ answer, isGuessed, handleClickToNextRound }) => {
   const { chooseAnswer, nextQuestion } = constants;
   const { imagePath, audioPath, title } = getRoundData(answer, isGuessed);
 
@@ -45,7 +42,12 @@ const Question: React.FC<IQuestion> = ({
           <AudioPlayer path={audioPath} />
         </div>
       </div>
-      <Button label={nextQuestion} classes="question__button" disabled />
+      <Button
+        label={nextQuestion}
+        classes="question__button"
+        handleClick={handleClickToNextRound}
+        disabled={!isGuessed}
+      />
     </section>
   );
 };

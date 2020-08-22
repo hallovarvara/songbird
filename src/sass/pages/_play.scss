@@ -1,3 +1,5 @@
 .page_play {
+  width: 40.4rem;
+
   @include flex($direction: column);
 }

@@ -1,4 +1,6 @@
 .question {
+  margin-bottom: $margin-between-blocks;
+
   @include flex($direction: column);
 }
 
@@ -31,5 +33,7 @@
 }
 
 .question__button {
+  width: 100%;
+
   border-radius: 0 0 $border-radius $border-radius;
 }

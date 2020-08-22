@@ -4,7 +4,7 @@
   @include flex($direction: column);
 
   .logo {
-    margin-bottom: 3rem;
+    margin-bottom: $margin-between-blocks;
   }
 
   h2 {

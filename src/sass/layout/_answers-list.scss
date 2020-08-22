@@ -1,0 +1,17 @@
+.answers-list {
+  width: 100%;
+
+  @include flex($justify-content: space-between, $align-items: flex-end);
+}
+
+.answers-list__title {
+  margin-bottom: 2rem;
+
+  text-align: center;
+
+  @include font(
+    $size: 2.2rem,
+    $family: $font-secondary,
+    $line-height: 140%,
+  );
+}

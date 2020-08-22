@@ -3,7 +3,10 @@ import React from 'react';
 import { IButton } from '../../../helpers/interfaces';
 
 const Button: React.FC<IButton> = ({
-  label, handleClick, classes = '', disabled = false,
+  label,
+  handleClick,
+  classes = '',
+  disabled = false,
 }) => (
   <button
     className={`button${classes && ` ${classes}`}`}

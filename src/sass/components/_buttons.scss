@@ -49,22 +49,35 @@
 .button[disabled] {
   background: $color-inactive;
 
-  &:hover {
-    background: $color-inactive;
-    animation: none;
-    transition: none;
-  }
+  @include button-usual-hover($color: $color-inactive);
+}
 
-  &:hover::before,
-  &::before {
-    background: $color-inactive;
+.answers-list__button {
+  padding: 0 2rem;
+  margin: 1rem 0;
 
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
+  width: 47.25%;
+  min-height: 6rem;
 
-    filter: none;
-    animation: none;
-  }
+  color: $color-dark;
+  background: $color-light;
+
+  @include font($size: 1.6rem);
+  @include button-usual-hover();
+  @include transition($properties: background-color);
+}
+
+.answers-list__button_clicked-wrong {
+  color: $color-fail;
+  background-color: transparent;
+  border: 1px solid $color-fail;
+
+  @include button-opacity-hover();
+}
+
+.answers-list__button_clicked-right {
+  background-color: $color-success;
+
+  @include button-shadow($color1: rgba($color-success, 0.8), $color2: rgba(#ffc350, 0.55));
+  @include button-opacity-hover($background-color: $color-success);
 }

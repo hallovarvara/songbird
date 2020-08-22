@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { IScore } from '../../helpers/interfaces';
-import { getPointsWord } from '../../helpers/functions';
+import { getPointsWord } from '../../helpers/utils';
 
 const Score: React.FC<IScore> = ({ score }) => (
   <div className="score">

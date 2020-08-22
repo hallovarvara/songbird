@@ -17,5 +17,5 @@
   opacity: 0.15;
 
   @extend %position-fixed;
-  @include background($url: url('../../images/bg-app.jpg'), $size: cover);
+  @include background($url: url('../../assets/images/bg-app.jpg'), $size: cover);
 }
