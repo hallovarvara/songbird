@@ -1,13 +1,5 @@
 import React from 'react';
 
-export interface IRoundData {
-  isGuessed: boolean;
-  award: number;
-  id: string;
-  title: string;
-  shows: IShow[];
-}
-
 export interface IAppState {
   isPlaying: boolean;
   isGameEnded: boolean;
@@ -35,10 +27,11 @@ export interface IShows {
   [key: string]: IShow[];
 }
 
-export interface IRound {
-  title: string;
-  id: string;
+export interface IRoundData {
   isGuessed: boolean;
+  award: number;
+  id: string;
+  title: string;
   shows: IShow[];
 }
 
@@ -62,7 +55,7 @@ export interface IScore {
 
 export interface IHeader {
   score: number;
-  currentRoundData: IRound;
+  currentRoundData: IRoundData;
 }
 
 export interface IQuestion {
@@ -97,4 +90,8 @@ export interface IPlayPage extends IHeader {
   handleClickToAnswer: IHandleClickToAnswer;
   roundNumber: number;
   lastClickedShowNumber: number;
+}
+
+export interface IQuestionsList {
+  roundsData: IRoundData[];
 }
