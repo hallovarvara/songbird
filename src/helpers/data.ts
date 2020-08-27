@@ -1,9 +1,7 @@
-import { categories } from './constants';
 import { IObjectOfStrings } from './interfaces';
+import { getCategoriesForData } from './utils';
 
-const {
-  detective, fantastic, drama, comedy, medicine, final,
-} = categories;
+const { detective, fantastic, drama, comedy, medicine, final } = getCategoriesForData();
 
 const data: IObjectOfStrings[] = [
   {
@@ -19,7 +17,7 @@ const data: IObjectOfStrings[] = [
     originalTitle: 'The Good Doctor',
     category: medicine,
     description:
-      'Может ли аутист стать отличным хирургом и каково это — натурально видеть всё, что происходит в организме пациента? Гениальность, граничащая с коммуникативными проблемами делают главного героя воистине уникальным доктором.',
+      'Может ли аутист стать отличным хирургом и каково это — натурально видеть всё, что происходит в организме пациента? Гениальность, граничащая с коммуникативными проблемами делают главного героя воистину уникальным доктором.',
     path: 'good-doctor',
   },
   {

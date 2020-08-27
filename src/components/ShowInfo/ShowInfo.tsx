@@ -1,21 +1,32 @@
 import React from 'react';
+import processClassNames from 'classnames';
 
-import data from '../../helpers/data';
 import { getAudioPath, getImagePath } from '../../helpers/utils';
 
 import AudioPlayer from '../AudioPlayer';
+import { IShowInfo } from '../../helpers/interfaces';
 
-const ShowInfo: React.FC = () => {
-  const { title, latin, description, path } = data[0];
+const ShowInfo: React.FC<IShowInfo> = ({ show }) => {
+  const { title, originalTitle, description, path, isAnswer } = show;
 
   return (
-    <div className="show-info__card">
-      <img src={getImagePath(path)} alt={title} />
-      <h2>{title}</h2>
-      <span className="show-info__latin">{latin}</span>
+    <section className="show-info">
+      <div
+        className={processClassNames(
+          'show-info__main',
+          { 'show-info__main_success': isAnswer },
+          { 'show-info__main_fail': !isAnswer },
+        )}
+      >
+        <div className="show-info__title">
+          <h2>{title}</h2>
+          <p>{originalTitle}</p>
+        </div>
+        <img className="show-info__poster" src={getImagePath(path)} alt={title} />
+      </div>
       <AudioPlayer path={getAudioPath(path)} />
       <p className="show-info__description">{description}</p>
-    </div>
+    </section>
   );
 };
 

@@ -6,6 +6,7 @@ import { IPlayPage, IShow } from '../../helpers/interfaces';
 import GameProgress from '../../components/GameProgress';
 import Question from '../../components/Question';
 import AnswersList from '../../components/AnswersList';
+import ShowInfo from '../../components/ShowInfo';
 
 const getAnswerShow = (shows: IShow[] | undefined): IShow | undefined => {
   let answerShow;
@@ -20,16 +21,14 @@ const PlayPage: React.FC<IPlayPage> = ({
   currentRoundData,
   handleClickToAnswer,
   handleClickToNextRound,
+  roundNumber,
+  lastClickedShowNumber,
 }) => {
-  const { number, shows, isGuessed } = currentRoundData || {
-    number: undefined,
-    shows: undefined,
-    isGuessed: undefined,
-  };
+  const { shows, isGuessed } = currentRoundData;
 
   return (
     <div className="page_play">
-      <GameProgress round={number || 0} />
+      <GameProgress round={roundNumber} />
       <Header score={score} currentRoundData={currentRoundData} />
       <Question
         answer={getAnswerShow(shows)}
@@ -37,6 +36,9 @@ const PlayPage: React.FC<IPlayPage> = ({
         handleClickToNextRound={handleClickToNextRound}
       />
       <AnswersList shows={shows} handleClickToAnswer={handleClickToAnswer} />
+      {lastClickedShowNumber >= 0 && (
+        <ShowInfo show={currentRoundData.shows[lastClickedShowNumber]} />
+      )}
     </div>
   );
 };

@@ -1,18 +1,20 @@
-export interface IOrder {
-  category: string;
-  points: number;
+import React from 'react';
+
+export interface IRoundData {
+  isGuessed: boolean;
+  award: number;
+  id: string;
+  title: string;
+  shows: IShow[];
 }
 
 export interface IAppState {
   isPlaying: boolean;
   isGameEnded: boolean;
-  round: number;
   score: number;
-  order: IOrder[];
-  shows: IShows;
-  currentRoundData: ICurrentRound | null;
-  currentRoundAward: number;
-  rightAnswerKey: number;
+  currentRoundNumber: number;
+  roundsData: IRoundData[];
+  lastClickedShowNumber: number;
 }
 
 export interface IObjectOfStrings {
@@ -22,23 +24,22 @@ export interface IObjectOfStrings {
 export interface IShow {
   title: string;
   originalTitle: string;
-  category: string;
+  category?: string;
   description: string;
   path: string;
-  isAnswer?: boolean;
-  isClicked?: boolean;
+  isAnswer: boolean;
+  isClicked: boolean;
 }
 
 export interface IShows {
   [key: string]: IShow[];
 }
 
-export interface ICurrentRound {
+export interface IRound {
   title: string;
-  key: string;
-  shows: IShow[];
-  number: number;
+  id: string;
   isGuessed: boolean;
+  shows: IShow[];
 }
 
 export interface IAudioPlayer {
@@ -49,8 +50,7 @@ export interface IButton {
   label: string;
   classes?: string;
   disabled?: boolean;
-  handleClick: IHandleClick | undefined; // | IHandleClickToNextRound,
-  // key?: string,
+  handleClick: IHandleClick | undefined;
 }
 
 export interface IGameProgress {
@@ -62,13 +62,13 @@ export interface IScore {
 
 export interface IHeader {
   score: number;
-  currentRoundData: null | ICurrentRound;
+  currentRoundData: IRound;
 }
 
 export interface IQuestion {
   answer: IShow | undefined;
   isGuessed: boolean;
-  handleClickToNextRound: IHandleClick | undefined; // IHandleClickToNextRound
+  handleClickToNextRound: IHandleClick | undefined;
 }
 
 export interface IHandleClick {
@@ -76,21 +76,25 @@ export interface IHandleClick {
 }
 
 export interface IHandleClickToAnswer {
-  handleClickToAnswer: IHandleClick;
+  (showIndex: number): void;
 }
 
-// export interface IHandleClickToNextRound {
-//   (event: React.MouseEvent, isRoundGuessed: boolean): void
-// }
-
-export interface IAnswersList extends IHandleClickToAnswer {
+export interface IAnswersList {
   shows: IShow[] | undefined;
+  handleClickToAnswer: IHandleClickToAnswer;
+}
+
+export interface IShowInfo {
+  show: IShow;
 }
 
 export interface IStartPage {
   handleClick: IHandleClick;
 }
 
-export interface IPlayPage extends IHeader, IHandleClickToAnswer {
+export interface IPlayPage extends IHeader {
   handleClickToNextRound: IHandleClick | undefined;
+  handleClickToAnswer: IHandleClickToAnswer;
+  roundNumber: number;
+  lastClickedShowNumber: number;
 }

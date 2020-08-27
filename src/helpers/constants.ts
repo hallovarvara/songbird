@@ -19,11 +19,29 @@ export const constants: IObjectOfStrings = {
   answersListTitle: 'Из какого сериала музыкальная тема, представленная в плеере?',
 };
 
-export const categories: IObjectOfStrings = {
-  detective: 'Детектив',
-  fantastic: 'Фантастика',
-  drama: 'Драма',
-  comedy: 'Комедия',
-  medicine: 'Медицина',
-  final: 'Финал',
-};
+export const categories: IObjectOfStrings[] = [
+  {
+    title: 'Детектив',
+    id: 'detective',
+  },
+  {
+    title: 'Фантастика',
+    id: 'fantastic',
+  },
+  {
+    title: 'Драма',
+    id: 'drama',
+  },
+  {
+    title: 'Комедия',
+    id: 'comedy',
+  },
+  {
+    title: 'Медицина',
+    id: 'medicine',
+  },
+  {
+    title: 'Финал',
+    id: 'final',
+  },
+];

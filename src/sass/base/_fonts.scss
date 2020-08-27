@@ -1,7 +1,6 @@
 @font-face {
   font-family: 'Pacifico';
-  src: local('Pacifico Regular'),
-    local('Pacifico-Regular'),
+  src: local('Pacifico Regular'), local('Pacifico-Regular'),
     url('../../assets/fonts/pacifico.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -9,8 +8,7 @@
 
 @font-face {
   font-family: 'Strong';
-  src: local('Strong Regular'),
-    local('Strong-Regular'),
+  src: local('Strong Regular'), local('Strong-Regular'),
     url('../../assets/fonts/strong.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
@@ -18,11 +16,8 @@
 
 @font-face {
   font-family: 'OpenSansCondensedLocal';
-  src: local('Open Sans Condensed Light'),
-    local('Open-Sans-Condensed-Light'),
+  src: local('Open Sans Condensed Light'), local('Open-Sans-Condensed-Light'),
     url('../../assets/fonts/open-sans-condensed.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');

@@ -4,13 +4,10 @@ $color-light: #ffffff;
 $color-success: #ffdf8e;
 $color-fail: #f5927e;
 $color-inactive: #dadada;
+$color-page-background: #4b2436;
 
 /* Gradient */
-$gradient-main: linear-gradient(
-  90deg,
-  $color-fail 0%,
-  #9225ff 100%
-);
+$gradient-main: linear-gradient(90deg, $color-fail 0%, #9225ff 100%);
 
 /* Fonts */
 $font-primary: 'Strong', 'Open Sans Condensed', 'OpenSansCondensedLocal', 'Arial', sans-serif;

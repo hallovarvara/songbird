@@ -23,7 +23,7 @@
 @mixin background-gradient(
   $color1: #693322,
   $color2: #2f1648,
-  $color-fill: #4b2436,
+  $color-fill: $color-page-background,
   $degrees: 180deg
 ) {
   background: linear-gradient($degrees, $color1 0%, $color2 100%), $color-fill;
