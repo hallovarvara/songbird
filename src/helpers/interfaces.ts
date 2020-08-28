@@ -55,7 +55,8 @@ export interface IScore {
 
 export interface IHeader {
   score: number;
-  currentRoundData: IRoundData;
+  currentRoundNumber: number;
+  roundsData: IRoundData[];
 }
 
 export interface IQuestion {
@@ -88,7 +89,7 @@ export interface IStartPage {
 export interface IPlayPage extends IHeader {
   handleClickToNextRound: IHandleClick | undefined;
   handleClickToAnswer: IHandleClickToAnswer;
-  roundNumber: number;
+  currentRoundNumber: number;
   lastClickedShowNumber: number;
 }
 
@@ -100,4 +101,5 @@ export interface IEndPage {
 
 export interface IQuestionsList {
   roundsData: IRoundData[];
+  currentRoundNumber: number;
 }

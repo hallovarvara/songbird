@@ -1,11 +1,25 @@
 .questions-list {
+  max-width: calc(100% - 12rem);
+
+  @include font($size: 1.5rem, $line-height: 150%, $spacing: 0);
 }
 
 .questions-list__question {
+  display: inline-block;
+
+  list-style: none;
+
+  opacity: 0.5;
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.questions-list__question_current {
+  opacity: 1;
 }
 
 .questions-list__question_guessed {
-}
-
-.questions-list__points {
+  color: $color-success;
 }

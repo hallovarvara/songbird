@@ -2,19 +2,20 @@ import React from 'react';
 import processClassNames from 'classnames';
 
 import { IQuestionsList } from '../../helpers/interfaces';
-import { getPointsWord } from '../../helpers/utils';
 
-const QuestionsList: React.FC<IQuestionsList> = ({ roundsData }) => (
+const QuestionsList: React.FC<IQuestionsList> = ({ roundsData, currentRoundNumber }) => (
   <ul className="questions-list">
-    {roundsData.map(({ id, title, award, isGuessed }) => (
+    {roundsData.map(({ id, title, isGuessed }, roundNumber) => (
       <li
         key={id}
-        className={processClassNames('questions-list__question', {
-          'questions-list__question_guessed': isGuessed,
-        })}
+        className={processClassNames(
+          'questions-list__question',
+          { 'questions-list__question_guessed': isGuessed },
+          { 'questions-list__question_current': roundNumber === currentRoundNumber },
+        )}
       >
         {title}
-        <span className="questions-list__points">{`${award} ${getPointsWord(award)}`}</span>
+        {roundNumber !== roundsData.length - 1 && ' →'}
       </li>
     ))}
   </ul>

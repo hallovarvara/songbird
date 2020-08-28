@@ -60,6 +60,7 @@ class App extends React.Component {
         currentRoundNumber: prevRoundNumber + 1,
         lastClickedShowNumber: this.initialState.lastClickedShowNumber,
       });
+      // eslint-disable-next-line no-console
       console.log(
         `Правильный ответ раунда «${roundsData[prevRoundNumber + 1].title}» — «${roundsData[
           prevRoundNumber + 1
@@ -166,8 +167,8 @@ class App extends React.Component {
       currentPage = (
         <PlayPage
           score={score}
-          currentRoundData={roundsData[currentRoundNumber]}
-          roundNumber={currentRoundNumber}
+          roundsData={roundsData}
+          currentRoundNumber={currentRoundNumber}
           handleClickToAnswer={this.handleClickToAnswer}
           handleClickToNextRound={this.goNext}
           lastClickedShowNumber={lastClickedShowNumber}

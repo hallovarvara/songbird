@@ -1,15 +1,15 @@
 import React from 'react';
 
 import { ReactComponent as Logo } from '../../assets/images/songbird-logo.svg';
-import QuestionCurrent from '../QuestionCurrent';
 import Score from '../Score';
 
 import { IHeader } from '../../helpers/interfaces';
+import QuestionsList from '../QuestionsList/QuestionsList';
 
-const Header: React.FC<IHeader> = ({ score, currentRoundData }) => (
+const Header: React.FC<IHeader> = ({ score, currentRoundNumber, roundsData }) => (
   <header>
     <Logo />
-    <QuestionCurrent questionTitle={currentRoundData?.title || ''} />
+    <QuestionsList roundsData={roundsData} currentRoundNumber={currentRoundNumber} />
     <Score score={score} />
   </header>
 );

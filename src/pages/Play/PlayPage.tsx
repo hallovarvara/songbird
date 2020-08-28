@@ -15,18 +15,21 @@ const getAnswerShow = (shows: IShow[]): IShow => {
 
 const PlayPage: React.FC<IPlayPage> = ({
   score,
-  currentRoundData,
+  roundsData,
   handleClickToAnswer,
   handleClickToNextRound,
-  roundNumber,
+  currentRoundNumber,
   lastClickedShowNumber,
 }) => {
+  const currentRoundData = roundsData[currentRoundNumber];
   const { shows, isGuessed } = currentRoundData;
 
   return (
     <div className="page_play">
-      <GameProgress round={currentRoundData.isGuessed ? roundNumber + 1 : roundNumber} />
-      <Header score={score} currentRoundData={currentRoundData} />
+      <GameProgress
+        round={currentRoundData.isGuessed ? currentRoundNumber + 1 : currentRoundNumber}
+      />
+      <Header score={score} roundsData={roundsData} currentRoundNumber={currentRoundNumber} />
       <Question
         answer={getAnswerShow(shows)}
         isGuessed={isGuessed || false}
