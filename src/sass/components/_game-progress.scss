@@ -1,7 +1,9 @@
 .game-progress {
   height: 0.5rem;
+  z-index: 5;
 
   background-color: $color-light;
 
   @extend %position-fixed;
+  @include transition($properties: width);
 }

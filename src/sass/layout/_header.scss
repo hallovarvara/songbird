@@ -19,19 +19,9 @@ header {
 
 .current-question__note,
 .score__note {
-  @include font(
-    $size: 1.8rem,
-    $family: $font-secondary,
-    $line-height: 100%,
-    $spacing: 0.02rem
-  );
+  @include font($size: 1.8rem, $family: $font-secondary, $line-height: 140%, $spacing: 0.02rem);
 }
 
 .score__points {
-  @include font(
-    $size: 3.2rem,
-    $family: $font-secondary,
-    $line-height: 80%,
-    $spacing: 0.02rem
-  );
+  @include font($size: 3.2rem, $family: $font-secondary, $line-height: 80%, $spacing: 0.02rem);
 }

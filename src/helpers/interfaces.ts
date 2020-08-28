@@ -59,7 +59,7 @@ export interface IHeader {
 }
 
 export interface IQuestion {
-  answer: IShow | undefined;
+  answer: IShow;
   isGuessed: boolean;
   handleClickToNextRound: IHandleClick | undefined;
 }
@@ -73,7 +73,7 @@ export interface IHandleClickToAnswer {
 }
 
 export interface IAnswersList {
-  shows: IShow[] | undefined;
+  shows: IShow[];
   handleClickToAnswer: IHandleClickToAnswer;
 }
 
@@ -90,6 +90,12 @@ export interface IPlayPage extends IHeader {
   handleClickToAnswer: IHandleClickToAnswer;
   roundNumber: number;
   lastClickedShowNumber: number;
+}
+
+export interface IEndPage {
+  score: number;
+  maximumScore: number;
+  handleClick: IHandleClick;
 }
 
 export interface IQuestionsList {

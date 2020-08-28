@@ -7,17 +7,17 @@ import { IQuestion, IShow } from '../../helpers/interfaces';
 import Button from '../basic/Button';
 import { getAudioPath, getImagePath } from '../../helpers/utils';
 
-const getRoundData = (data: IShow | undefined, isGuessed: boolean) => {
+const getRoundData = (data: IShow, isGuessed: boolean) => {
   let roundData = {
     imagePath: unguessedImage,
-    audioPath: getAudioPath(data?.path || 'house-md'),
+    audioPath: getAudioPath(data.path),
     title: '***',
   };
 
   if (isGuessed && data) {
     roundData = {
+      ...roundData,
       imagePath: getImagePath(data.path),
-      audioPath: getAudioPath(data.path),
       title: data.title,
     };
   }
@@ -26,17 +26,17 @@ const getRoundData = (data: IShow | undefined, isGuessed: boolean) => {
 };
 
 const Question: React.FC<IQuestion> = ({ answer, isGuessed, handleClickToNextRound }) => {
-  const { chooseAnswer, nextQuestion } = constants;
+  const { nextQuestion } = constants;
   const { imagePath, audioPath, title } = getRoundData(answer, isGuessed);
 
-  if (!answer) {
-    return <div>Загрузка...</div>; // TODO implement cozy loader
-  }
+  const posterStyles = {
+    backgroundImage: `url(${imagePath})`,
+  };
 
   return (
     <section className="question">
       <div className="question__content">
-        <img src={imagePath} alt={chooseAnswer} />
+        <div className="question__poster" style={posterStyles} />
         <div className="question__info">
           <p>{title}</p>
           <AudioPlayer path={audioPath} />

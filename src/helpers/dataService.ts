@@ -23,12 +23,12 @@ const getCategorizedShowsForRound = (category: any) => {
 };
 
 export const getRoundsData = (): IRoundData[] =>
-  categories.map((category) => ({
-    id: category.id,
-    title: category.title,
+  categories.map(({ id, title }) => ({
+    id,
+    title,
     isGuessed: false,
     award: maximumAwardForRound,
-    shows: getCategorizedShowsForRound(category.title),
+    shows: getCategorizedShowsForRound(title),
   }));
 
 export const getShowsByCategoryAndCount = (

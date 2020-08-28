@@ -8,11 +8,8 @@ import Question from '../../components/Question';
 import AnswersList from '../../components/AnswersList';
 import ShowInfo from '../../components/ShowInfo';
 
-const getAnswerShow = (shows: IShow[] | undefined): IShow | undefined => {
-  let answerShow;
-  if (shows) {
-    [answerShow] = shows.filter((show) => show.isAnswer);
-  }
+const getAnswerShow = (shows: IShow[]): IShow => {
+  const [answerShow] = shows.filter((show) => show.isAnswer);
   return answerShow;
 };
 
@@ -28,7 +25,7 @@ const PlayPage: React.FC<IPlayPage> = ({
 
   return (
     <div className="page_play">
-      <GameProgress round={roundNumber} />
+      <GameProgress round={currentRoundData.isGuessed ? roundNumber + 1 : roundNumber} />
       <Header score={score} currentRoundData={currentRoundData} />
       <Question
         answer={getAnswerShow(shows)}

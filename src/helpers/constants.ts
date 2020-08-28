@@ -14,9 +14,13 @@ export const constants: IObjectOfStrings = {
   title: 'Угадай сериал',
   subtitle: 'по саундтреку',
   startGame: 'Начать игру',
+  startNewGame: 'Начать новую игру',
   currentQuestion: 'текущий вопрос',
   nextQuestion: 'Дальше',
-  answersListTitle: 'Из какого сериала музыкальная тема, представленная в плеере?',
+  answersListTitle: 'Из какого сериала музыкальная тема, играющая в плеере выше?',
+  sumUp: 'Вы набрали {points} {pointsWord} из {maximumScore} возможных',
+  tryAgain: 'Чтобы набрать максимум и стать отбитым сериаломаном, сыграйте снова',
+  youWin: 'Поздравляем! Игра окончена, а вы добились цели и стали главным знатоком сериальных дел',
 };
 
 export const categories: IObjectOfStrings[] = [

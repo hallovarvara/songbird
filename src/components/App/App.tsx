@@ -4,7 +4,7 @@ import StartPage from '../../pages/Start';
 import EndPage from '../../pages/End';
 import PlayPage from '../../pages/Play';
 
-import { constants, soundPath } from '../../helpers/constants';
+import { constants, soundPath, maximumAwardForRound } from '../../helpers/constants';
 import { getRoundsData } from '../../helpers/dataService';
 
 import { IAppState, IRoundData } from '../../helpers/interfaces';
@@ -27,6 +27,11 @@ class App extends React.Component {
 
   audioQueue: HTMLAudioElement[] = [];
 
+  get maximumScore(): number {
+    const { roundsData } = this.state;
+    return roundsData.length * maximumAwardForRound;
+  }
+
   cleanAudioQueue = (): void => {
     this.audioQueue.forEach((audio) => {
       audio.pause();
@@ -47,24 +52,43 @@ class App extends React.Component {
     this.audioQueue = [audioElement];
   };
 
-  setNextRound = (): void => {
-    this.setState(
-      ({ currentRoundNumber: prevRoundNumber }: IAppState) => ({
+  goNext = (): void => {
+    const { currentRoundNumber: prevRoundNumber, roundsData } = this.state;
+
+    if (prevRoundNumber < roundsData.length - 1) {
+      this.setState({
         currentRoundNumber: prevRoundNumber + 1,
-      }),
-      () => {
-        console.log(this.state.currentRoundNumber);
-      },
-    );
-    this.updateLastClickedShowNumber(this.initialState.lastClickedShowNumber);
+        lastClickedShowNumber: this.initialState.lastClickedShowNumber,
+      });
+      console.log(
+        `Правильный ответ раунда «${roundsData[prevRoundNumber + 1].title}» — «${roundsData[
+          prevRoundNumber + 1
+        ].shows.reduce((rightAnswer, show) => (show.isAnswer ? show.title : rightAnswer), '')}»`,
+      );
+    } else {
+      this.setState({
+        isPlaying: false,
+        isGameEnded: true,
+        lastClickedShowNumber: this.initialState.lastClickedShowNumber,
+      });
+    }
   };
 
   startGame = (): void => {
     this.setState({
-      ...this.initialState,
       isPlaying: true,
     });
-    this.setNextRound();
+    this.goNext();
+  };
+
+  restartGame = (): void => {
+    this.setState(
+      {
+        ...this.initialState,
+        roundsData: getRoundsData(),
+      },
+      this.startGame,
+    );
   };
 
   updateCurrentRoundData = (newCurrentRoundData: IRoundData): void => {
@@ -82,12 +106,9 @@ class App extends React.Component {
   };
 
   updateScore = (): void => {
-    this.setState(
-      ({ score: prevScore, roundsData, currentRoundNumber }: IAppState) => ({
-        score: prevScore + roundsData[currentRoundNumber].award,
-      }),
-      () => console.log('updated score:', this.state.score),
-    );
+    this.setState(({ score: prevScore, roundsData, currentRoundNumber }: IAppState) => ({
+      score: prevScore + roundsData[currentRoundNumber].award,
+    }));
   };
 
   updateLastClickedShowNumber = (newIndex: number): void => {
@@ -96,51 +117,37 @@ class App extends React.Component {
     });
   };
 
-  handleClickToAnswerNew = (clickedShowIndex: number): void => {
+  handleClickToAnswer = (clickedShowIndex: number): void => {
     const { roundsData, currentRoundNumber } = this.state;
-    const round = roundsData[currentRoundNumber];
+    const currentRound = roundsData[currentRoundNumber];
+    const currentShow = { ...roundsData[currentRoundNumber].shows[clickedShowIndex] };
 
-    const clickedShowTitle = round.shows[clickedShowIndex].title;
-    let isRoundGuessed = round.isGuessed;
-    let roundAward = round.award;
+    this.updateLastClickedShowNumber(clickedShowIndex);
 
-    const newShows = round.shows.map((show) => {
-      const newShow = { ...show };
-
-      if (show.title === clickedShowTitle && !show.isClicked) {
-        if (!isRoundGuessed) {
-          this.playUIAudio(show.isAnswer);
-          newShow.isClicked = true;
-        }
-
-        if (show.isAnswer) {
-          this.updateScore();
-          isRoundGuessed = true;
-        } else if (!isRoundGuessed) {
-          roundAward = roundAward > 0 ? roundAward - 1 : 0;
-        }
-
-        console.log('clicked show:', newShow);
+    if (!currentShow.isClicked) {
+      if (!currentRound.isGuessed) {
+        this.playUIAudio(currentShow.isAnswer);
+        currentShow.isClicked = true;
       }
 
-      return newShow;
-    });
+      if (currentShow.isAnswer) {
+        this.updateScore();
+      }
 
-    console.log(isRoundGuessed ? 'round`s guessed' : 'keep guessing');
-
-    const newRoundData = {
-      ...round,
-      shows: newShows,
-      isGuessed: isRoundGuessed,
-      award: roundAward,
-    };
-
-    this.updateCurrentRoundData(newRoundData);
-    this.updateLastClickedShowNumber(clickedShowIndex);
-  };
-
-  handleClickToNextRound = (): void => {
-    console.log('round is guessed', this.state);
+      this.updateCurrentRoundData({
+        ...currentRound,
+        shows: [
+          ...currentRound.shows.slice(0, clickedShowIndex),
+          currentShow,
+          ...currentRound.shows.slice(clickedShowIndex + 1),
+        ],
+        isGuessed: currentShow.isAnswer || currentRound.isGuessed,
+        award:
+          currentShow.isAnswer || currentRound.isGuessed
+            ? currentRound.award
+            : currentRound.award - 1,
+      });
+    }
   };
 
   render(): React.ReactNode {
@@ -161,13 +168,15 @@ class App extends React.Component {
           score={score}
           currentRoundData={roundsData[currentRoundNumber]}
           roundNumber={currentRoundNumber}
-          handleClickToAnswer={this.handleClickToAnswerNew}
-          handleClickToNextRound={this.handleClickToNextRound}
+          handleClickToAnswer={this.handleClickToAnswer}
+          handleClickToNextRound={this.goNext}
           lastClickedShowNumber={lastClickedShowNumber}
         />
       );
     } else if (isGameEnded) {
-      currentPage = <EndPage />;
+      currentPage = (
+        <EndPage score={score} maximumScore={this.maximumScore} handleClick={this.restartGame} />
+      );
     } else {
       currentPage = <StartPage handleClick={this.startGame} />;
     }
