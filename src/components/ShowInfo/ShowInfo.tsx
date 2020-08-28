@@ -3,7 +3,7 @@ import processClassNames from 'classnames';
 
 import { getAudioPath, getImagePath } from '../../helpers/utils';
 
-import AudioPlayer from '../AudioPlayer';
+import AudioPlayer from '../basic/AudioPlayer';
 import { IShowInfo } from '../../helpers/interfaces';
 
 const ShowInfo: React.FC<IShowInfo> = ({ show }) => {

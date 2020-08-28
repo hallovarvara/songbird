@@ -2,7 +2,7 @@ import React from 'react';
 
 import { constants } from '../../helpers/constants';
 import unguessedImage from '../../assets/images/unguessed.svg';
-import AudioPlayer from '../AudioPlayer';
+import AudioPlayer from '../basic/AudioPlayer';
 import { IQuestion, IShow } from '../../helpers/interfaces';
 import Button from '../basic/Button';
 import { getAudioPath, getImagePath } from '../../helpers/utils';

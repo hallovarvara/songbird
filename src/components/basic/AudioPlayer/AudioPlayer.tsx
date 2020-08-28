@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IAudioPlayer } from '../../helpers/interfaces';
+import { IAudioPlayer } from '../../../helpers/interfaces';
 
 const AudioPlayer = ({ path = '' }: IAudioPlayer) => (
   <audio className="audio-player" controls>
