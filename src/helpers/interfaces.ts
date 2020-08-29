@@ -1,4 +1,4 @@
-import React from 'react';
+import { MouseEvent } from 'react';
 
 export interface IAppState {
   isPlaying: boolean;
@@ -35,8 +35,8 @@ export interface IRoundData {
   shows: IShow[];
 }
 
-export interface IAudioPlayer {
-  path: string | undefined;
+export interface IPlayer {
+  path: string;
 }
 
 export interface IButton {
@@ -66,7 +66,7 @@ export interface IQuestion {
 }
 
 export interface IHandleClick {
-  (event: React.MouseEvent): void | undefined;
+  (event: MouseEvent): void | undefined;
 }
 
 export interface IHandleClickToAnswer {

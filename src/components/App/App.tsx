@@ -23,24 +23,25 @@ class App extends React.Component {
     ...this.initialState,
   };
 
-  /* Audio */
+  UIAudioQueue: HTMLAudioElement[] = [];
 
-  audioQueue: HTMLAudioElement[] = [];
+  showsAudioQueue: HTMLAudioElement[] = [];
 
   get maximumScore(): number {
     const { roundsData } = this.state;
     return roundsData.length * maximumAwardForRound;
   }
 
-  cleanAudioQueue = (): void => {
-    this.audioQueue.forEach((audio) => {
+  cleanAudioQueue = (queue: HTMLAudioElement[]): [] => {
+    queue.forEach((audio) => {
       audio.pause();
     });
+    return [];
   };
 
   playUIAudio = (isAnswerRight: boolean): void => {
-    if (this.audioQueue.length > 1) {
-      this.cleanAudioQueue();
+    if (this.UIAudioQueue.length > 1) {
+      this.UIAudioQueue = this.cleanAudioQueue(this.UIAudioQueue);
     }
 
     const { success, fail } = soundPath;
@@ -49,7 +50,7 @@ class App extends React.Component {
     const audioElement = new Audio(audioPath);
 
     audioElement.play();
-    this.audioQueue = [audioElement];
+    this.UIAudioQueue.push(audioElement);
   };
 
   goNext = (): void => {

@@ -8,6 +8,8 @@ import Question from '../../components/Question';
 import AnswersList from '../../components/AnswersList';
 import ShowInfo from '../../components/ShowInfo';
 
+import { constants } from '../../helpers/constants';
+
 const getAnswerShow = (shows: IShow[]): IShow => {
   const [answerShow] = shows.filter((show) => show.isAnswer);
   return answerShow;
@@ -36,8 +38,10 @@ const PlayPage: React.FC<IPlayPage> = ({
         handleClickToNextRound={handleClickToNextRound}
       />
       <AnswersList shows={shows} handleClickToAnswer={handleClickToAnswer} />
-      {lastClickedShowNumber >= 0 && (
+      {lastClickedShowNumber >= 0 ? (
         <ShowInfo show={currentRoundData.shows[lastClickedShowNumber]} />
+      ) : (
+        <p className="page_play__instruction">{constants.listenToSeeInfo}</p>
       )}
     </div>
   );

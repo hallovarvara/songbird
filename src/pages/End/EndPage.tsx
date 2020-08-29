@@ -16,9 +16,7 @@ const EndPage: React.FC<IEndPage> = ({ score, maximumScore, handleClick }) => {
     <div className="page_end">
       <p className="page_end__result">{sumUp}</p>
       <p className="page_end__comment">{score === maximumScore ? youWin : tryAgain}</p>
-      {score !== maximumScore && (
-        <Button label={startNewGame} handleClick={handleClick} classes="page_end__button" />
-      )}
+      <Button label={startNewGame} handleClick={handleClick} classes="page_end__button" />
     </div>
   );
 };

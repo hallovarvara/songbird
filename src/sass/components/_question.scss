@@ -1,5 +1,6 @@
 .question {
   margin-bottom: $margin-between-blocks;
+  width: 100%;
 
   @include flex($direction: column);
 }
