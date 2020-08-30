@@ -10,6 +10,11 @@
   @extend %button-shining;
   @include font($size: 2.8rem, $line-height: 140%, $spacing: 0.2rem);
 
+  @include media-mobile {
+    padding: 2rem 3rem;
+    font-size: 2.2rem;
+  }
+
   &:hover {
     animation: animate-button 8s linear infinite;
 
@@ -65,6 +70,10 @@
   @include font($size: 1.6rem);
   @include button-usual-hover();
   @include transition($properties: background-color);
+
+  @include media-mobile {
+    @include font($size: 1.4rem, $line-height: 140%);
+  }
 }
 
 .answers-list__button_clicked-wrong {

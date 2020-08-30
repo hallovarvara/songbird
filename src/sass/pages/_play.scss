@@ -2,6 +2,10 @@
   width: $width-page;
 
   @include flex($direction: column);
+
+  @include media-mobile {
+    width: $width-page-min;
+  }
 }
 
 .page_play__instruction {
