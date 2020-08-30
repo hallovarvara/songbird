@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  min-width: 100vw;
+  min-height: 100vh;
+
+  color: $color-light;
+
+  @include background-gradient();
+  @include flex();
+}
+
+h1 {
+  @extend %hide;
+}

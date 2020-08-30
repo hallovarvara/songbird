@@ -1,0 +1,56 @@
+.show-info {
+  color: $color-dark;
+  background-color: $color-light;
+  border-radius: $border-radius;
+
+  @include flex($direction: column);
+}
+
+.show-info__poster {
+  max-width: 10rem;
+  border-top-right-radius: $border-radius;
+}
+
+.show-info__main {
+  width: 100%;
+  margin-bottom: 2rem;
+
+  border-top-right-radius: $border-radius;
+  border-top-left-radius: $border-radius;
+
+  @include flex($justify-content: space-between);
+}
+
+.show-info__main_success {
+  color: $color-dark;
+  background-color: $color-success;
+}
+
+.show-info__main_fail {
+  color: $color-light;
+  background-color: $color-fail;
+}
+
+.show-info__title {
+  flex-grow: 1;
+  padding: 0 2rem;
+  width: calc(100% - #{$width-poster});
+
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1rem;
+
+    @include font($family: $font-secondary, $spacing: 0.02rem);
+  }
+
+  p {
+    @include font($size: 1.4rem, $line-height: 140%);
+  }
+}
+
+.show-info__description {
+  margin: 2rem 2.5rem 2.5rem;
+
+  @include font($size: 1.6rem, $family: $font-primary, $line-height: 150%);
+}

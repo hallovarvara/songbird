@@ -1,0 +1,31 @@
+/* Colors */
+$color-dark: #000000;
+$color-light: #ffffff;
+$color-success: #ffdf8e;
+$color-fail: #f5927e;
+$color-inactive: #dadada;
+$color-page-background: #4b2436;
+
+/* Gradient */
+$gradient-main: linear-gradient(90deg, $color-fail 0%, #9225ff 100%);
+
+/* Fonts */
+$font-primary: 'Strong', 'Open Sans Condensed', 'OpenSansCondensedLocal', 'Arial', sans-serif;
+$font-secondary: 'Pacifico', 'Baskerville', 'Georgia', sans-serif;
+
+/* Devices' widths */
+$width-min: 320px;
+$width-mobile: 520px;
+$width-tablet: 860px;
+$width-desktop: 1200px;
+
+/* Button shining ✨ */
+$shining-size: -0.05rem;
+
+/* Settings */
+$border-radius: 5rem;
+$animation-time: 0.3s;
+$margin-between-blocks: 3rem;
+$opacity-hover-button: 0.7;
+$width-poster: 10rem;
+$width-page: 40.4rem;

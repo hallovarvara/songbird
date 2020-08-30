@@ -1,0 +1,27 @@
+header {
+  margin-bottom: $margin-between-blocks;
+
+  width: 100%;
+
+  text-align: center;
+
+  @include flex($justify-content: space-between);
+
+  .logo {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.current-question__title {
+  @include font($size: 2rem, $line-height: 130%);
+}
+
+.current-question__note,
+.score__note {
+  @include font($size: 1.8rem, $family: $font-secondary, $line-height: 140%, $spacing: 0.02rem);
+}
+
+.score__points {
+  @include font($size: 3.2rem, $family: $font-secondary, $line-height: 80%, $spacing: 0.02rem);
+}

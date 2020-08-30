@@ -1,0 +1,33 @@
+/* Fonts */
+@import './sass/base/fonts';
+
+/* Abstracts */
+@import './sass/abstracts/variables';
+@import './sass/abstracts/mixins';
+@import './sass/abstracts/placeholders';
+
+/* Base */
+@import '../node_modules/scss-reset/src/scss/_reset.scss';
+@import './sass/base/base';
+@import './sass/base/typography';
+
+/* Layout */
+@import './sass/layout/grid';
+@import './sass/layout/header';
+@import './sass/layout/forms';
+@import './sass/layout/app';
+@import './sass/layout/answers-list';
+@import './sass/layout/show-info';
+@import './sass/layout/questions-list';
+
+/* Pages */
+@import './sass/pages/start';
+@import './sass/pages/play';
+@import './sass/pages/end';
+
+/* Components */
+@import './sass/components/buttons';
+@import './sass/components/score';
+@import './sass/components/game-progress';
+@import 'sass/components/question';
+@import 'sass/components/audio-player';

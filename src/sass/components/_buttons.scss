@@ -1,0 +1,83 @@
+.button {
+  position: relative;
+  padding: 2rem 6rem;
+
+  text-transform: uppercase;
+
+  color: $color-light;
+  z-index: 4;
+
+  @extend %button-shining;
+  @include font($size: 2.8rem, $line-height: 140%, $spacing: 0.2rem);
+
+  &:hover {
+    animation: animate-button 8s linear infinite;
+
+    &::before {
+      filter: blur(2rem);
+      opacity: 1;
+      animation: animate-button 8s linear infinite;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: $shining-size;
+    left: $shining-size;
+    right: $shining-size;
+    bottom: $shining-size;
+    z-index: -1;
+    opacity: 0;
+    transition: $animation-time;
+
+    @extend %button-shining;
+  }
+}
+
+@keyframes animate-button {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 400%;
+  }
+}
+
+.button:disabled,
+.button[disabled] {
+  background: $color-inactive;
+
+  @include button-usual-hover($color: $color-inactive);
+}
+
+.answers-list__button {
+  padding: 0 2rem;
+  margin: 1rem 0;
+
+  width: 47.25%;
+  min-height: 6rem;
+
+  color: $color-dark;
+  background: $color-light;
+
+  @include font($size: 1.6rem);
+  @include button-usual-hover();
+  @include transition($properties: background-color);
+}
+
+.answers-list__button_clicked-wrong {
+  color: $color-fail;
+  background-color: transparent;
+  border: 1px solid $color-fail;
+
+  @include button-opacity-hover();
+}
+
+.answers-list__button_clicked-right {
+  background-color: $color-success;
+
+  @include button-shadow($color1: rgba($color-success, 0.8), $color2: rgba(#ffc350, 0.55));
+  @include button-opacity-hover($background-color: $color-success);
+}

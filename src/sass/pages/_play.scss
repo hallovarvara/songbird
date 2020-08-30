@@ -1,0 +1,11 @@
+.page_play {
+  width: $width-page;
+
+  @include flex($direction: column);
+}
+
+.page_play__instruction {
+  text-align: center;
+
+  @include font($size: 1.8rem, $line-height: 130%);
+}

@@ -1,0 +1,11 @@
+{
+  "JSX": {
+    "object_curly_spacing": false,
+    "beautifiers": [
+      "Prettier"
+    ],
+    "Prettier": {
+      "prefer_beautifier_config": true
+    }
+  }
+}

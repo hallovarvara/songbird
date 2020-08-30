@@ -1,0 +1,48 @@
+.question {
+  margin-bottom: $margin-between-blocks;
+  width: 100%;
+
+  @include flex($direction: column);
+}
+
+.question__content {
+  width: 100%;
+
+  @include flex($align-items: flex-start);
+}
+
+.question__poster {
+  align-self: stretch;
+  position: relative;
+
+  width: $width-poster;
+
+  border-top-left-radius: $border-radius;
+
+  @include background($size: cover);
+}
+
+.question__info {
+  flex-grow: 1;
+  padding: 2rem;
+  min-height: 100%;
+  width: calc(100% - #{$width-poster});
+
+  color: $color-dark;
+  background-color: $color-light;
+  border-top-right-radius: $border-radius;
+
+  @include flex($direction: column);
+
+  p {
+    margin-bottom: 1.5rem;
+
+    text-align: center;
+  }
+}
+
+.question__button {
+  width: 100%;
+
+  border-radius: 0 0 $border-radius $border-radius;
+}
