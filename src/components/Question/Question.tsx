@@ -25,7 +25,12 @@ const getRoundData = (data: IShow, isGuessed: boolean) => {
   return roundData;
 };
 
-const Question: React.FC<IQuestion> = ({ answer, isGuessed, handleClickToNextRound }) => {
+const Question: React.FC<IQuestion> = ({
+  answer,
+  isGuessed,
+  handleClickToNextRound,
+  handleShowAudioPlaying,
+}) => {
   const { nextQuestion } = constants;
   const { imagePath, audioPath, title } = getRoundData(answer, isGuessed);
 
@@ -39,7 +44,7 @@ const Question: React.FC<IQuestion> = ({ answer, isGuessed, handleClickToNextRou
         <div className="question__poster" style={posterStyles} />
         <div className="question__info">
           <p>{title}</p>
-          <AudioPlayer path={audioPath} />
+          <AudioPlayer path={audioPath} handleShowAudioPlaying={handleShowAudioPlaying} />
         </div>
       </div>
       <Button

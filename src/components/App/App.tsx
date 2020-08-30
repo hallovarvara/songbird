@@ -7,7 +7,7 @@ import PlayPage from '../../pages/Play';
 import { constants, soundPath, maximumAwardForRound } from '../../helpers/constants';
 import { getRoundsData } from '../../helpers/dataService';
 
-import { IAppState, IRoundData } from '../../helpers/interfaces';
+import { IAppState, IHandleClickAudioPlaying, IRoundData } from '../../helpers/interfaces';
 
 class App extends React.Component {
   initialState: IAppState = {
@@ -37,6 +37,33 @@ class App extends React.Component {
       audio.pause();
     });
     return [];
+  };
+
+  pauseAllShowsAudio = (): void => {
+    this.showsAudioQueue.forEach((audio) => {
+      audio.pause();
+    });
+  };
+
+  handleShowAudioPlaying: IHandleClickAudioPlaying = (audio) => {
+    let isAudioInQueue: boolean = false;
+
+    if (this.showsAudioQueue.length < 1) {
+      this.showsAudioQueue.push(audio || new Audio());
+      isAudioInQueue = true;
+    } else {
+      this.showsAudioQueue.forEach((audioInQueue) => {
+        if (audioInQueue === audio) {
+          isAudioInQueue = true;
+        } else {
+          audioInQueue.pause();
+        }
+      });
+    }
+
+    if (!isAudioInQueue) {
+      this.showsAudioQueue.push(audio || new Audio());
+    }
   };
 
   playUIAudio = (isAnswerRight: boolean): void => {
@@ -134,6 +161,7 @@ class App extends React.Component {
 
       if (currentShow.isAnswer) {
         this.updateScore();
+        this.pauseAllShowsAudio();
       }
 
       this.updateCurrentRoundData({
@@ -173,6 +201,7 @@ class App extends React.Component {
           handleClickToAnswer={this.handleClickToAnswer}
           handleClickToNextRound={this.goNext}
           lastClickedShowNumber={lastClickedShowNumber}
+          handleShowAudioPlaying={this.handleShowAudioPlaying}
         />
       );
     } else if (isGameEnded) {

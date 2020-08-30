@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, RefObject, FC } from 'react';
 
 export interface IAppState {
   isPlaying: boolean;
@@ -37,6 +37,7 @@ export interface IRoundData {
 
 export interface IPlayer {
   path: string;
+  handleShowAudioPlaying: IHandleClickAudioPlaying;
 }
 
 export interface IButton {
@@ -59,18 +60,16 @@ export interface IHeader {
   roundsData: IRoundData[];
 }
 
-export interface IQuestion {
-  answer: IShow;
-  isGuessed: boolean;
-  handleClickToNextRound: IHandleClick | undefined;
-}
-
 export interface IHandleClick {
   (event: MouseEvent): void | undefined;
 }
 
 export interface IHandleClickToAnswer {
   (showIndex: number): void;
+}
+
+export interface IHandleClickAudioPlaying {
+  (audio: HTMLAudioElement | null | undefined): void;
 }
 
 export interface IAnswersList {
@@ -80,6 +79,7 @@ export interface IAnswersList {
 
 export interface IShowInfo {
   show: IShow;
+  handleShowAudioPlaying: IHandleClickAudioPlaying;
 }
 
 export interface IStartPage {
@@ -91,12 +91,20 @@ export interface IPlayPage extends IHeader {
   handleClickToAnswer: IHandleClickToAnswer;
   currentRoundNumber: number;
   lastClickedShowNumber: number;
+  handleShowAudioPlaying: IHandleClickAudioPlaying;
 }
 
 export interface IEndPage {
   score: number;
   maximumScore: number;
   handleClick: IHandleClick;
+}
+
+export interface IQuestion {
+  answer: IShow;
+  isGuessed: boolean;
+  handleClickToNextRound: IHandleClick | undefined;
+  handleShowAudioPlaying: IHandleClickAudioPlaying;
 }
 
 export interface IQuestionsList {

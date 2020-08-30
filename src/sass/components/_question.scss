@@ -25,6 +25,7 @@
 .question__info {
   flex-grow: 1;
   padding: 2rem;
+  padding-left: 1rem;
   min-height: 100%;
   width: calc(100% - #{$width-poster});
 
