@@ -29,8 +29,42 @@
     flex: 0 0 7rem;
   }
 
-  .question .rhap_container {
-    padding: 0 1.8rem 0 0.8rem;
+  .question {
+    .rhap_container {
+      padding: 0 1.8rem 0 0.8rem;
+    }
+
+    @include media-mobile {
+      .rhap_container {
+        padding: 0;
+      }
+      .rhap_progress-section {
+        position: relative;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .rhap_progress-container {
+        flex: 1 0 60%;
+        margin: 0 0 0 2rem;
+      }
+
+      .rhap_volume-container {
+        margin: 1rem auto 0;
+      }
+
+      .rhap_volume-controls {
+        flex: 0 0 100%;
+      }
+
+      .rhap_current-time {
+        left: 5.8rem;
+      }
+
+      .rhap_total-time {
+        right: 0;
+      }
+    }
   }
 
   .show-info .rhap_container {
