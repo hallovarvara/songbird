@@ -6,7 +6,7 @@ import { getAudioPath, getImagePath } from '../../helpers/utils';
 import AudioPlayer from '../basic/AudioPlayer';
 import { IShowInfo } from '../../helpers/interfaces';
 
-const ShowInfo: React.FC<IShowInfo> = ({ show }) => {
+const ShowInfo: React.FC<IShowInfo> = ({ show, handleShowAudioPlaying }) => {
   const { title, originalTitle, description, path, isAnswer } = show;
 
   return (
@@ -24,7 +24,7 @@ const ShowInfo: React.FC<IShowInfo> = ({ show }) => {
         </div>
         <img className="show-info__poster" src={getImagePath(path)} alt={title} />
       </div>
-      <AudioPlayer path={getAudioPath(path)} />
+      <AudioPlayer path={getAudioPath(path)} handleShowAudioPlaying={handleShowAudioPlaying} />
       <p className="show-info__description">{description}</p>
     </section>
   );

@@ -22,6 +22,7 @@ const PlayPage: React.FC<IPlayPage> = ({
   handleClickToNextRound,
   currentRoundNumber,
   lastClickedShowNumber,
+  handleShowAudioPlaying,
 }) => {
   const currentRoundData = roundsData[currentRoundNumber];
   const { shows, isGuessed } = currentRoundData;
@@ -36,10 +37,14 @@ const PlayPage: React.FC<IPlayPage> = ({
         answer={getAnswerShow(shows)}
         isGuessed={isGuessed || false}
         handleClickToNextRound={handleClickToNextRound}
+        handleShowAudioPlaying={handleShowAudioPlaying}
       />
       <AnswersList shows={shows} handleClickToAnswer={handleClickToAnswer} />
       {lastClickedShowNumber >= 0 ? (
-        <ShowInfo show={currentRoundData.shows[lastClickedShowNumber]} />
+        <ShowInfo
+          show={currentRoundData.shows[lastClickedShowNumber]}
+          handleShowAudioPlaying={handleShowAudioPlaying}
+        />
       ) : (
         <p className="page_play__instruction">{constants.listenToSeeInfo}</p>
       )}

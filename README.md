@@ -9,6 +9,5 @@
 - HTML
 
 ## Tools
-- Figma for design
-- Project Board for management
-- Discord for communication
+- [Figma for design](https://www.figma.com/file/y17UqHoOL5fbgoFHGBcfTu/Songbird?node-id=0%3A1)
+- Todoist and Apple Notes for task management
