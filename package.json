@@ -47,7 +47,7 @@
   "devDependencies": {
     "@svgr/webpack": "^5.4.0",
     "babel-preset-env": "^1.7.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "scss-reset": "^1.1.8",
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
