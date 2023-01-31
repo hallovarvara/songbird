@@ -1,3 +1,1 @@
-import Question from './Question';
-
-export default Question;
+export { Question } from './Question';

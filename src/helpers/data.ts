@@ -1,7 +1,8 @@
 import { IObjectOfStrings } from './interfaces';
-import { getCategoriesForData } from './utils';
+import { getShowsCategories } from './utils/get-shows-categories';
 
-const { detective, fantastic, drama, comedy, medicine, final } = getCategoriesForData();
+const { detective, fantastic, drama, comedy, medicine, final } =
+  getShowsCategories();
 
 const data: IObjectOfStrings[] = [
   {

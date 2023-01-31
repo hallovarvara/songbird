@@ -2,10 +2,11 @@ import React from 'react';
 
 import { constants } from '../../helpers/constants';
 import unguessedImage from '../../assets/images/unguessed.svg';
-import AudioPlayer from '../basic/AudioPlayer';
+import { AudioPlayer } from '../basic/AudioPlayer';
 import { IQuestion, IShow } from '../../helpers/interfaces';
 import Button from '../basic/Button';
-import { getAudioPath, getImagePath } from '../../helpers/utils';
+import { getImagePath } from '../../helpers/utils/get-image-path';
+import { getAudioPath } from '../../helpers/utils/get-audio-path';
 
 const getRoundData = (data: IShow, isGuessed: boolean) => {
   let roundData = {
@@ -25,7 +26,7 @@ const getRoundData = (data: IShow, isGuessed: boolean) => {
   return roundData;
 };
 
-const Question: React.FC<IQuestion> = ({
+export const Question: React.FC<IQuestion> = ({
   answer,
   isGuessed,
   handleClickToNextRound,
@@ -44,7 +45,10 @@ const Question: React.FC<IQuestion> = ({
         <div className="question__poster" style={posterStyles} />
         <div className="question__info">
           <p>{title}</p>
-          <AudioPlayer path={audioPath} handleShowAudioPlaying={handleShowAudioPlaying} />
+          <AudioPlayer
+            path={audioPath}
+            handleShowAudioPlaying={handleShowAudioPlaying}
+          />
         </div>
       </div>
       <Button
@@ -56,5 +60,3 @@ const Question: React.FC<IQuestion> = ({
     </section>
   );
 };
-
-export default Question;

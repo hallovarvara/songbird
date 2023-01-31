@@ -7,7 +7,7 @@
 @import './sass/abstracts/placeholders';
 
 /* Base */
-@import '../node_modules/scss-reset/src/scss/_reset.scss';
+@import './sass/vendors/scss-reset';
 @import './sass/base/base';
 @import './sass/base/typography';
 

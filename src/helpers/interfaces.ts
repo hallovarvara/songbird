@@ -1,5 +1,22 @@
-import { MouseEvent, RefObject, FC } from 'react';
+import { MouseEvent } from 'react';
 
+export interface IShow {
+  title: string;
+  originalTitle: string;
+  category?: string;
+  description: string;
+  path: string;
+  isAnswer: boolean;
+  isClicked: boolean;
+}
+
+export interface IRoundData {
+  isGuessed: boolean;
+  award: number;
+  id: string;
+  title: string;
+  shows: IShow[];
+}
 export interface IAppState {
   isPlaying: boolean;
   isGameEnded: boolean;
@@ -13,31 +30,17 @@ export interface IObjectOfStrings {
   [key: string]: string;
 }
 
-export interface IShow {
-  title: string;
-  originalTitle: string;
-  category?: string;
-  description: string;
-  path: string;
-  isAnswer: boolean;
-  isClicked: boolean;
-}
-
-export interface IShows {
-  [key: string]: IShow[];
-}
-
-export interface IRoundData {
-  isGuessed: boolean;
-  award: number;
-  id: string;
-  title: string;
-  shows: IShow[];
+export interface IHandleClickAudioPlaying {
+  (audio: HTMLAudioElement | null | undefined): void;
 }
 
 export interface IPlayer {
   path: string;
   handleShowAudioPlaying: IHandleClickAudioPlaying;
+}
+
+export interface IHandleClick {
+  (event: MouseEvent): void | undefined;
 }
 
 export interface IButton {
@@ -60,16 +63,8 @@ export interface IHeader {
   roundsData: IRoundData[];
 }
 
-export interface IHandleClick {
-  (event: MouseEvent): void | undefined;
-}
-
 export interface IHandleClickToAnswer {
   (showIndex: number): void;
-}
-
-export interface IHandleClickAudioPlaying {
-  (audio: HTMLAudioElement | null | undefined): void;
 }
 
 export interface IAnswersList {

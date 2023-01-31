@@ -3,7 +3,7 @@ import React from 'react';
 import { IGameProgress } from '../../helpers/interfaces';
 import { categories } from '../../helpers/constants';
 
-const GameProgress: React.FC<IGameProgress> = ({ round = 0 }) => {
+export const GameProgress: React.FC<IGameProgress> = ({ round = 0 }) => {
   const questionsCount: number = categories.length;
   const gameProgressWidth: number = (100 / questionsCount) * round;
 
@@ -13,5 +13,3 @@ const GameProgress: React.FC<IGameProgress> = ({ round = 0 }) => {
 
   return <div className="game-progress" style={gameProgressStyle} />;
 };
-
-export default GameProgress;
