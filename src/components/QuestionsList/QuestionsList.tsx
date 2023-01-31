@@ -1,17 +1,23 @@
 import React from 'react';
-import processClassNames from 'classnames';
+import { handleClassnames } from '../../helpers/utils/handle-classnames';
 
 import { IQuestionsList } from '../../helpers/interfaces';
 
-const QuestionsList: React.FC<IQuestionsList> = ({ roundsData, currentRoundNumber }) => (
+export const QuestionsList = ({
+  roundsData,
+  currentRoundNumber,
+}: IQuestionsList) => (
   <ul className="questions-list">
     {roundsData.map(({ id, title, isGuessed }, roundNumber) => (
       <li
         key={id}
-        className={processClassNames(
+        className={handleClassnames(
           'questions-list__question',
           { 'questions-list__question_guessed': isGuessed },
-          { 'questions-list__question_current': roundNumber === currentRoundNumber },
+          {
+            'questions-list__question_current':
+              roundNumber === currentRoundNumber,
+          },
         )}
       >
         {title}
@@ -20,5 +26,3 @@ const QuestionsList: React.FC<IQuestionsList> = ({ roundsData, currentRoundNumbe
     ))}
   </ul>
 );
-
-export default QuestionsList;

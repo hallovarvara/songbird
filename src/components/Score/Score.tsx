@@ -1,13 +1,11 @@
 import React from 'react';
 
 import { IScore } from '../../helpers/interfaces';
-import { getPointsWord } from '../../helpers/utils';
+import { getPointsWord } from '../../helpers/get-points-word';
 
-const Score: React.FC<IScore> = ({ score }) => (
+export const Score = ({ score }: IScore) => (
   <div className="score">
     <div className="score__points">{score}</div>
     <div className="score__note">{getPointsWord(score)}</div>
   </div>
 );
-
-export default Score;

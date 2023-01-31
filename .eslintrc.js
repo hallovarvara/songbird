@@ -6,13 +6,10 @@ module.exports = {
   },
   extends: [
     'airbnb',
-    'react-app',
     'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended',
-    'prettier/@typescript-eslint',
   ],
-  plugins: ['babel', 'import', 'react', 'prettier'],
-  parser: 'babel-eslint',
+  plugins: ['import', 'react', 'prettier'],
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
@@ -55,5 +52,8 @@ module.exports = {
     'react/prop-types': 0,
     'implicit-arrow-linebreak': 0,
     'object-curly-newline': 0,
+    'react/function-component-definition': 0,
+    'import/prefer-default-export': 0,
+    'operator-linebreak': 0,
   },
 };

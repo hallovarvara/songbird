@@ -29,7 +29,7 @@ import { defaultProgressJumpStep } from '../../../helpers/constants';
 //   }
 // }
 
-const AudioPlayer = ({ path = '', handleShowAudioPlaying }: IPlayer) => {
+export const AudioPlayer = ({ path = '', handleShowAudioPlaying }: IPlayer) => {
   const player: RefObject<H5AudioPlayer> = createRef();
 
   return (
@@ -52,5 +52,3 @@ const AudioPlayer = ({ path = '', handleShowAudioPlaying }: IPlayer) => {
     />
   );
 };
-
-export default AudioPlayer;

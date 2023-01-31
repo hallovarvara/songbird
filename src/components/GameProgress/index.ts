@@ -1,3 +1,1 @@
-import GameProgress from './GameProgress';
-
-export default GameProgress;
+export { GameProgress } from './GameProgress';

@@ -1,13 +1,22 @@
 import React from 'react';
 
+import { cleanAudioQueue } from '../../helpers/utils/clean-audio-queue';
 import StartPage from '../../pages/Start';
 import EndPage from '../../pages/End';
 import PlayPage from '../../pages/Play';
 
-import { constants, soundPath, maximumAwardForRound } from '../../helpers/constants';
+import {
+  constants,
+  soundPath,
+  maximumAwardForRound,
+} from '../../helpers/constants';
 import { getRoundsData } from '../../helpers/dataService';
 
-import { IAppState, IHandleClickAudioPlaying, IRoundData } from '../../helpers/interfaces';
+import {
+  IAppState,
+  IHandleClickAudioPlaying,
+  IRoundData,
+} from '../../helpers/interfaces';
 
 class App extends React.Component {
   initialState: IAppState = {
@@ -32,13 +41,6 @@ class App extends React.Component {
     return roundsData.length * maximumAwardForRound;
   }
 
-  cleanAudioQueue = (queue: HTMLAudioElement[]): [] => {
-    queue.forEach((audio) => {
-      audio.pause();
-    });
-    return [];
-  };
-
   pauseAllShowsAudio = (): void => {
     this.showsAudioQueue.forEach((audio) => {
       audio.pause();
@@ -46,7 +48,7 @@ class App extends React.Component {
   };
 
   handleShowAudioPlaying: IHandleClickAudioPlaying = (audio) => {
-    let isAudioInQueue: boolean = false;
+    let isAudioInQueue = false;
 
     if (this.showsAudioQueue.length < 1) {
       this.showsAudioQueue.push(audio || new Audio());
@@ -68,7 +70,7 @@ class App extends React.Component {
 
   playUIAudio = (isAnswerRight: boolean): void => {
     if (this.UIAudioQueue.length > 1) {
-      this.UIAudioQueue = this.cleanAudioQueue(this.UIAudioQueue);
+      this.UIAudioQueue = cleanAudioQueue(this.UIAudioQueue);
     }
 
     const { success, fail } = soundPath;
@@ -90,9 +92,12 @@ class App extends React.Component {
       });
       // eslint-disable-next-line no-console
       console.log(
-        `Правильный ответ раунда «${roundsData[prevRoundNumber + 1].title}» — «${roundsData[
-          prevRoundNumber + 1
-        ].shows.reduce((rightAnswer, show) => (show.isAnswer ? show.title : rightAnswer), '')}»`,
+        `Правильный ответ раунда «${
+          roundsData[prevRoundNumber + 1].title
+        }» — «${roundsData[prevRoundNumber + 1].shows.reduce(
+          (rightAnswer, show) => (show.isAnswer ? show.title : rightAnswer),
+          '',
+        )}»`,
       );
     } else {
       this.setState({
@@ -135,9 +140,11 @@ class App extends React.Component {
   };
 
   updateScore = (): void => {
-    this.setState(({ score: prevScore, roundsData, currentRoundNumber }: IAppState) => ({
-      score: prevScore + roundsData[currentRoundNumber].award,
-    }));
+    this.setState(
+      ({ score: prevScore, roundsData, currentRoundNumber }: IAppState) => ({
+        score: prevScore + roundsData[currentRoundNumber].award,
+      }),
+    );
   };
 
   updateLastClickedShowNumber = (newIndex: number): void => {
@@ -149,7 +156,9 @@ class App extends React.Component {
   handleClickToAnswer = (clickedShowIndex: number): void => {
     const { roundsData, currentRoundNumber } = this.state;
     const currentRound = roundsData[currentRoundNumber];
-    const currentShow = { ...roundsData[currentRoundNumber].shows[clickedShowIndex] };
+    const currentShow = {
+      ...roundsData[currentRoundNumber].shows[clickedShowIndex],
+    };
 
     this.updateLastClickedShowNumber(clickedShowIndex);
 
@@ -206,7 +215,11 @@ class App extends React.Component {
       );
     } else if (isGameEnded) {
       currentPage = (
-        <EndPage score={score} maximumScore={this.maximumScore} handleClick={this.restartGame} />
+        <EndPage
+          score={score}
+          maximumScore={this.maximumScore}
+          handleClick={this.restartGame}
+        />
       );
     } else {
       currentPage = <StartPage handleClick={this.startGame} />;
@@ -224,4 +237,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export { App };

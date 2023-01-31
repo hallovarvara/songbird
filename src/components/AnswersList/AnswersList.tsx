@@ -1,12 +1,14 @@
 import React from 'react';
-import processClassNames from 'classnames';
-
+import { handleClassnames } from '../../helpers/utils/handle-classnames';
 import { IAnswersList } from '../../helpers/interfaces';
 import Button from '../basic/Button';
 
 import { constants } from '../../helpers/constants';
 
-const AnswersList: React.FC<IAnswersList> = ({ shows, handleClickToAnswer }) => {
+export const AnswersList: React.FC<IAnswersList> = ({
+  shows,
+  handleClickToAnswer,
+}) => {
   const { answersListTitle } = constants;
   return (
     <section className="answers-list">
@@ -15,7 +17,7 @@ const AnswersList: React.FC<IAnswersList> = ({ shows, handleClickToAnswer }) => 
         <Button
           label={title}
           key={path}
-          classes={processClassNames(
+          classes={handleClassnames(
             'answers-list__button',
             { 'answers-list__button_clicked-right': isClicked && isAnswer },
             { 'answers-list__button_clicked-wrong': isClicked && !isAnswer },
@@ -26,5 +28,3 @@ const AnswersList: React.FC<IAnswersList> = ({ shows, handleClickToAnswer }) => 
     </section>
   );
 };
-
-export default AnswersList;

@@ -1,18 +1,20 @@
 import React from 'react';
-import processClassNames from 'classnames';
-
-import { getAudioPath, getImagePath } from '../../helpers/utils';
-
-import AudioPlayer from '../basic/AudioPlayer';
 import { IShowInfo } from '../../helpers/interfaces';
+import { handleClassnames } from '../../helpers/utils/handle-classnames';
+import { getImagePath } from '../../helpers/utils/get-image-path';
+import { getAudioPath } from '../../helpers/utils/get-audio-path';
+import { AudioPlayer } from '../basic/AudioPlayer';
 
-const ShowInfo: React.FC<IShowInfo> = ({ show, handleShowAudioPlaying }) => {
+export const ShowInfo: React.FC<IShowInfo> = ({
+  show,
+  handleShowAudioPlaying,
+}) => {
   const { title, originalTitle, description, path, isAnswer } = show;
 
   return (
     <section className="show-info">
       <div
-        className={processClassNames(
+        className={handleClassnames(
           'show-info__main',
           { 'show-info__main_success': isAnswer },
           { 'show-info__main_fail': !isAnswer },
@@ -22,12 +24,17 @@ const ShowInfo: React.FC<IShowInfo> = ({ show, handleShowAudioPlaying }) => {
           <h2>{title}</h2>
           <p>{originalTitle}</p>
         </div>
-        <img className="show-info__poster" src={getImagePath(path)} alt={title} />
+        <img
+          className="show-info__poster"
+          src={getImagePath(path)}
+          alt={title}
+        />
       </div>
-      <AudioPlayer path={getAudioPath(path)} handleShowAudioPlaying={handleShowAudioPlaying} />
+      <AudioPlayer
+        path={getAudioPath(path)}
+        handleShowAudioPlaying={handleShowAudioPlaying}
+      />
       <p className="show-info__description">{description}</p>
     </section>
   );
 };
-
-export default ShowInfo;

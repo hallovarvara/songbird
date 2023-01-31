@@ -1,12 +1,11 @@
 import React from 'react';
 
-import Header from '../../components/Header';
-
 import { IPlayPage, IShow } from '../../helpers/interfaces';
-import GameProgress from '../../components/GameProgress';
-import Question from '../../components/Question';
-import AnswersList from '../../components/AnswersList';
-import ShowInfo from '../../components/ShowInfo';
+import { Header } from '../../components/Header';
+import { GameProgress } from '../../components/GameProgress';
+import { Question } from '../../components/Question';
+import { AnswersList } from '../../components/AnswersList';
+import { ShowInfo } from '../../components/ShowInfo';
 
 import { constants } from '../../helpers/constants';
 
@@ -30,9 +29,17 @@ const PlayPage: React.FC<IPlayPage> = ({
   return (
     <div className="page_play">
       <GameProgress
-        round={currentRoundData.isGuessed ? currentRoundNumber + 1 : currentRoundNumber}
+        round={
+          currentRoundData.isGuessed
+            ? currentRoundNumber + 1
+            : currentRoundNumber
+        }
       />
-      <Header score={score} roundsData={roundsData} currentRoundNumber={currentRoundNumber} />
+      <Header
+        score={score}
+        roundsData={roundsData}
+        currentRoundNumber={currentRoundNumber}
+      />
       <Question
         answer={getAnswerShow(shows)}
         isGuessed={isGuessed || false}

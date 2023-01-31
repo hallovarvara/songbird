@@ -1,14 +1,18 @@
-import * as _ from 'lodash';
-import { categories, defaultQuestionsCount, maximumAwardForRound } from './constants';
+import { getRandomNumber } from './utils/get-random-number';
+import {
+  categories,
+  defaultQuestionsCount,
+  maximumAwardForRound,
+} from './constants';
 import data from './data';
 import { IObjectOfStrings, IRoundData } from './interfaces';
 
 export const getShowsByCategory = (category: string): IObjectOfStrings[] =>
   data.filter((show) => show.category === category);
 
-const getCategorizedShowsForRound = (category: any) => {
+const getCategorizedShowsForRound = (category: string) => {
   const categorizedShows = getShowsByCategory(category);
-  const rightAnswerShow = _.random(categorizedShows.length - 1);
+  const rightAnswerShow = getRandomNumber(categorizedShows.length - 1);
   return categorizedShows.map((show, showNumber) => {
     const { title, originalTitle, description, path } = show;
     return {

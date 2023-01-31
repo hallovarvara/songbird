@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { constants } from '../../helpers/constants';
-import { getPointsWord } from '../../helpers/utils';
+import { getPointsWord } from '../../helpers/get-points-word';
 import { IEndPage } from '../../helpers/interfaces';
 import Button from '../../components/basic/Button';
 
@@ -15,8 +15,14 @@ const EndPage: React.FC<IEndPage> = ({ score, maximumScore, handleClick }) => {
   return (
     <div className="page_end">
       <p className="page_end__result">{sumUp}</p>
-      <p className="page_end__comment">{score === maximumScore ? youWin : tryAgain}</p>
-      <Button label={startNewGame} handleClick={handleClick} classes="page_end__button" />
+      <p className="page_end__comment">
+        {score === maximumScore ? youWin : tryAgain}
+      </p>
+      <Button
+        label={startNewGame}
+        handleClick={handleClick}
+        classes="page_end__button"
+      />
     </div>
   );
 };
