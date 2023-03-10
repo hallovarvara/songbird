@@ -1,14 +1,10 @@
 import { getRandomNumber } from './utils/get-random-number';
-import {
-  categories,
-  defaultQuestionsCount,
-  maximumAwardForRound,
-} from './constants';
-import data from './data';
+import { CATEGORIES, TV_SHOWS } from './data';
 import { IObjectOfStrings, IRoundData } from './types';
+import { DEFAULT_QUESTIONS_COUNT, MAX_ROUND_POINTS } from './constants';
 
 export const getShowsByCategory = (category: string): IObjectOfStrings[] =>
-  data.filter((show) => show.category === category);
+  TV_SHOWS.filter((show) => show.category === category);
 
 const getCategorizedShowsForRound = (category: string) => {
   const categorizedShows = getShowsByCategory(category);
@@ -27,15 +23,15 @@ const getCategorizedShowsForRound = (category: string) => {
 };
 
 export const getRoundsData = (): IRoundData[] =>
-  categories.map(({ id, title }) => ({
+  CATEGORIES.map(({ id, title }) => ({
     id,
     title,
     isGuessed: false,
-    award: maximumAwardForRound,
+    award: MAX_ROUND_POINTS,
     shows: getCategorizedShowsForRound(title),
   }));
 
 export const getShowsByCategoryAndCount = (
   category: string,
-  count: number = defaultQuestionsCount,
+  count: number = DEFAULT_QUESTIONS_COUNT,
 ): IObjectOfStrings[] => getShowsByCategory(category).slice(0, count);

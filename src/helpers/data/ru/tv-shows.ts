@@ -1,10 +1,11 @@
-import { IObjectOfStrings } from './types';
-import { getShowsCategories } from './utils/get-shows-categories';
+import { IObjectOfStrings } from '../../types';
+import { getShowsCategories } from '../../utils/get-shows-categories';
+import { CATEGORIES } from './dictionary';
 
 const { detective, fantastic, drama, comedy, medicine, final } =
-  getShowsCategories();
+  getShowsCategories(CATEGORIES);
 
-const data: IObjectOfStrings[] = [
+export const TV_SHOWS: IObjectOfStrings[] = [
   {
     title: 'Доктор Хаус',
     originalTitle: 'House, M.D.',
@@ -18,7 +19,7 @@ const data: IObjectOfStrings[] = [
     originalTitle: 'The Good Doctor',
     category: medicine,
     description:
-      'Может ли аутист стать отличным хирургом и каково это — натурально видеть всё, что происходит в организме пациента? Гениальность, граничащая с коммуникативными проблемами делают главного героя воистину уникальным доктором.',
+      'Может ли аутичная персона стать отличным хирургом и каково это — натурально видеть всё, что происходит в организме пациента? Гениальность, граничащая с коммуникативными проблемами делают главного героя воистину уникальным доктором.',
     path: 'good-doctor',
   },
   {
@@ -294,5 +295,3 @@ const data: IObjectOfStrings[] = [
     path: 'true-blood',
   },
 ];
-
-export default data;

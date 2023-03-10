@@ -4,30 +4,7 @@ import H5AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
 import { IPlayer } from '../../../helpers/types';
-import { defaultProgressJumpStep } from '../../../helpers/constants';
-
-// export default class AudioPlayer extends Component {
-//   render() {
-//     const { path } = this.props;
-//     return (
-//       <H5AudioPlayer
-//         src={path}
-//         autoPlay={false}
-//         autoPlayAfterSrcChange={false}
-//         showJumpControls={false}
-//         progressJumpStep={defaultProgressJumpStep}
-//         customProgressBarSection={[
-//           RHAP_UI.MAIN_CONTROLS,
-//           RHAP_UI.CURRENT_TIME,
-//           RHAP_UI.PROGRESS_BAR,
-//           RHAP_UI.DURATION,
-//           RHAP_UI.VOLUME_CONTROLS,
-//         ]}
-//         customControlsSection={[]}
-//       />
-//     );
-//   }
-// }
+import { DEFAULT_PROGRESS_JUMP_STEP } from '../../../helpers/constants';
 
 export const AudioPlayer = ({ path = '', handleShowAudioPlaying }: IPlayer) => {
   const player: RefObject<H5AudioPlayer> = createRef();
@@ -39,7 +16,7 @@ export const AudioPlayer = ({ path = '', handleShowAudioPlaying }: IPlayer) => {
       autoPlay={false}
       autoPlayAfterSrcChange={false}
       showJumpControls={false}
-      progressJumpStep={defaultProgressJumpStep}
+      progressJumpStep={DEFAULT_PROGRESS_JUMP_STEP}
       customProgressBarSection={[
         RHAP_UI.MAIN_CONTROLS,
         RHAP_UI.CURRENT_TIME,

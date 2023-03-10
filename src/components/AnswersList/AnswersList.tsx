@@ -1,15 +1,14 @@
 import React from 'react';
-import { handleClassnames } from '../../helpers/utils/handle-classnames';
+import { DICTIONARY } from '../../helpers/data';
 import { IAnswersList } from '../../helpers/types';
+import { handleClassnames } from '../../helpers/utils/handle-classnames';
 import Button from '../basic/Button';
-
-import { constants } from '../../helpers/constants';
 
 export const AnswersList: React.FC<IAnswersList> = ({
   shows,
   handleClickToAnswer,
 }) => {
-  const { answersListTitle } = constants;
+  const { answersListTitle } = DICTIONARY;
   return (
     <section className="answers-list">
       <div className="answers-list__title">{answersListTitle}</div>

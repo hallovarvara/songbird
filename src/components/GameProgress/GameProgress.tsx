@@ -1,10 +1,10 @@
 import React from 'react';
 
 import { IGameProgress } from '../../helpers/types';
-import { categories } from '../../helpers/constants';
+import { CATEGORIES } from '../../helpers/data';
 
 export const GameProgress: React.FC<IGameProgress> = ({ round = 0 }) => {
-  const questionsCount: number = categories.length;
+  const questionsCount: number = CATEGORIES.length;
   const gameProgressWidth: number = (100 / questionsCount) * round;
 
   const gameProgressStyle = {

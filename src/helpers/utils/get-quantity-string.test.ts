@@ -1,7 +1,7 @@
 import { getQuantityString } from './get-quantity-string';
-import { wordSets } from '../constants';
+import { WORD_SETS } from '../data';
 
-const wordSet = wordSets.points;
+const wordSet = WORD_SETS.points;
 
 describe('getQuantityString', () => {
   it.each(

@@ -9,7 +9,12 @@ export const ShowInfo: React.FC<IShowInfo> = ({
   show,
   handleShowAudioPlaying,
 }) => {
-  const { title, originalTitle, description, path, isAnswer } = show;
+  const { title,
+    // originalTitle,
+    description,
+    path,
+    isAnswer,
+  } = show;
 
   return (
     <section className="show-info">
@@ -22,7 +27,7 @@ export const ShowInfo: React.FC<IShowInfo> = ({
       >
         <div className="show-info__title">
           <h2>{title}</h2>
-          <p>{originalTitle}</p>
+          {/* <p>{originalTitle}</p> */}
         </div>
         <img
           className="show-info__poster"
