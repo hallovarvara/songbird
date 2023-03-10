@@ -3,7 +3,7 @@ import React, { createRef, RefObject } from 'react';
 import H5AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
 
-import { IPlayer } from '../../../helpers/interfaces';
+import { IPlayer } from '../../../helpers/types';
 import { defaultProgressJumpStep } from '../../../helpers/constants';
 
 // export default class AudioPlayer extends Component {

@@ -1,4 +1,4 @@
-import { IObjectOfStrings } from './interfaces';
+import { IObjectOfStrings } from './types';
 import { getShowsCategories } from './utils/get-shows-categories';
 
 const { detective, fantastic, drama, comedy, medicine, final } =

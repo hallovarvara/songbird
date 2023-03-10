@@ -1,5 +1,5 @@
 import React from 'react';
-import { IShowInfo } from '../../helpers/interfaces';
+import { IShowInfo } from '../../helpers/types';
 import { handleClassnames } from '../../helpers/utils/handle-classnames';
 import { getImagePath } from '../../helpers/utils/get-image-path';
 import { getAudioPath } from '../../helpers/utils/get-audio-path';

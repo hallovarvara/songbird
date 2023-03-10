@@ -3,7 +3,7 @@ import React from 'react';
 import { constants } from '../../helpers/constants';
 import unguessedImage from '../../assets/images/unguessed.svg';
 import { AudioPlayer } from '../basic/AudioPlayer';
-import { IQuestion, IShow } from '../../helpers/interfaces';
+import { IQuestion, IShow } from '../../helpers/types';
 import Button from '../basic/Button';
 import { getImagePath } from '../../helpers/utils/get-image-path';
 import { getAudioPath } from '../../helpers/utils/get-audio-path';

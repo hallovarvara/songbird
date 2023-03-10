@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IButton } from '../../../helpers/interfaces';
+import { IButton } from '../../../helpers/types';
 
 const Button: React.FC<IButton> = ({
   label,

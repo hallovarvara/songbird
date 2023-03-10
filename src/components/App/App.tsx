@@ -16,7 +16,7 @@ import {
   IAppState,
   IHandleClickAudioPlaying,
   IRoundData,
-} from '../../helpers/interfaces';
+} from '../../helpers/types';
 
 class App extends React.Component {
   initialState: IAppState = {

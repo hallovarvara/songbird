@@ -5,7 +5,7 @@ import {
   maximumAwardForRound,
 } from './constants';
 import data from './data';
-import { IObjectOfStrings, IRoundData } from './interfaces';
+import { IObjectOfStrings, IRoundData } from './types';
 
 export const getShowsByCategory = (category: string): IObjectOfStrings[] =>
   data.filter((show) => show.category === category);

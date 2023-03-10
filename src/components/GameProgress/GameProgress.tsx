@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IGameProgress } from '../../helpers/interfaces';
+import { IGameProgress } from '../../helpers/types';
 import { categories } from '../../helpers/constants';
 
 export const GameProgress: React.FC<IGameProgress> = ({ round = 0 }) => {

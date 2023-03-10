@@ -1,6 +1,6 @@
 import React from 'react';
 import { handleClassnames } from '../../helpers/utils/handle-classnames';
-import { IAnswersList } from '../../helpers/interfaces';
+import { IAnswersList } from '../../helpers/types';
 import Button from '../basic/Button';
 
 import { constants } from '../../helpers/constants';

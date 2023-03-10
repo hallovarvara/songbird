@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { IPlayPage, IShow } from '../../helpers/interfaces';
+import { IPlayPage, IShow } from '../../helpers/types';
 import { Header } from '../../components/Header';
 import { GameProgress } from '../../components/GameProgress';
 import { Question } from '../../components/Question';

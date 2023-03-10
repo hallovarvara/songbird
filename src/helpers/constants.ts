@@ -1,4 +1,4 @@
-import { IObjectOfStrings } from './interfaces';
+import { IObjectOfStrings } from './types';
 
 export const defaultQuestionsCount = 6;
 export const maximumAwardForRound = 5;
@@ -27,6 +27,10 @@ export const constants: IObjectOfStrings = {
     'Поздравляем! Игра окончена, а вы добились цели и стали главным знатоком сериальных дел',
   listenToSeeInfo:
     'Послушайте музыку из плеера и выберите сериал, к которому она относится',
+};
+
+export const wordSets = {
+  points: { one: 'балл', few: 'балла', many: 'баллов' },
 };
 
 export const categories: IObjectOfStrings[] = [

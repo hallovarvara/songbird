@@ -1,6 +1,6 @@
-# Game "Guess TV show by main musical theme"
+# Game "Guess TV show by main musical theme"
 
-It's a game for TV shows fun like me. Quiz with 6 genres categories.
+It's a game for TV shows fun like me. Quiz with 6 genres categories.
 
 ## Technologies
 - TypeScript

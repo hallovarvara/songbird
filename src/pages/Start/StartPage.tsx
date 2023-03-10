@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { constants } from '../../helpers/constants';
-import { IStartPage } from '../../helpers/interfaces';
+import { IStartPage } from '../../helpers/types';
 
 import { ReactComponent as Logo } from '../../assets/images/songbird-logo.svg';
 import Button from '../../components/basic/Button';
