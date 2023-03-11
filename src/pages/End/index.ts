@@ -1,3 +1,1 @@
-import EndPage from './EndPage';
-
-export default EndPage;
+export { EndPage } from './EndPage';

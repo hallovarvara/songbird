@@ -1,15 +1,20 @@
 import React from 'react';
-import { IShowInfo } from '../../helpers/interfaces';
-import { handleClassnames } from '../../helpers/utils/handle-classnames';
-import { getImagePath } from '../../helpers/utils/get-image-path';
-import { getAudioPath } from '../../helpers/utils/get-audio-path';
-import { AudioPlayer } from '../basic/AudioPlayer';
+import { IShowInfo } from '@types';
+import { handleClassnames } from '@utils/handle-classnames';
+import { getImagePath } from '@utils/get-image-path';
+import { getAudioPath } from '@utils/get-audio-path';
+import { AudioPlayer } from '@components/AudioPlayer';
 
 export const ShowInfo: React.FC<IShowInfo> = ({
   show,
   handleShowAudioPlaying,
 }) => {
-  const { title, originalTitle, description, path, isAnswer } = show;
+  const { title,
+    // originalTitle,
+    description,
+    path,
+    isAnswer,
+  } = show;
 
   return (
     <section className="show-info">
@@ -22,7 +27,7 @@ export const ShowInfo: React.FC<IShowInfo> = ({
       >
         <div className="show-info__title">
           <h2>{title}</h2>
-          <p>{originalTitle}</p>
+          {/* <p>{originalTitle}</p> */}
         </div>
         <img
           className="show-info__poster"

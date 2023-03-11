@@ -1,7 +1,6 @@
 import React from 'react';
-import { handleClassnames } from '../../helpers/utils/handle-classnames';
-
-import { IQuestionsList } from '../../helpers/interfaces';
+import { IQuestionsList } from '@types';
+import { handleClassnames } from '@utils/handle-classnames';
 
 export const QuestionsList = ({
   roundsData,

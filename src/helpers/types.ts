@@ -106,3 +106,9 @@ export interface IQuestionsList {
   roundsData: IRoundData[];
   currentRoundNumber: number;
 }
+
+export type TWordSet = {
+  one: string;
+  few: string;
+  many: string;
+}

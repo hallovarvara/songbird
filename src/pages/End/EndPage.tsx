@@ -1,15 +1,13 @@
 import React from 'react';
+import { IEndPage } from '@types';
+import { DICTIONARY, WORD_SETS } from '@data';
+import { getQuantityString } from '@utils/get-quantity-string';
+import { Button } from '@components/Button';
 
-import { constants } from '../../helpers/constants';
-import { getPointsWord } from '../../helpers/get-points-word';
-import { IEndPage } from '../../helpers/interfaces';
-import Button from '../../components/basic/Button';
-
-const EndPage: React.FC<IEndPage> = ({ score, maximumScore, handleClick }) => {
-  const { youWin, tryAgain, startNewGame } = constants;
-  const sumUp = constants.sumUp
-    .replace('{points}', String(score))
-    .replace('{pointsWord}', getPointsWord(score))
+export const EndPage: React.FC<IEndPage> = ({ score, maximumScore, handleClick }) => {
+  const { youWin, tryAgain, startNewGame } = DICTIONARY;
+  const sumUp = DICTIONARY.sumUp
+    .replace('{points} {pointsWord}', getQuantityString(score, WORD_SETS.points, true))
     .replace('{maximumScore}', String(maximumScore));
 
   return (
@@ -26,5 +24,3 @@ const EndPage: React.FC<IEndPage> = ({ score, maximumScore, handleClick }) => {
     </div>
   );
 };
-
-export default EndPage;

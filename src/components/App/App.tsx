@@ -1,24 +1,18 @@
 import React from 'react';
-
-import { cleanAudioQueue } from '../../helpers/utils/clean-audio-queue';
-import StartPage from '../../pages/Start';
-import EndPage from '../../pages/End';
-import PlayPage from '../../pages/Play';
-
-import {
-  constants,
-  soundPath,
-  maximumAwardForRound,
-} from '../../helpers/constants';
-import { getRoundsData } from '../../helpers/dataService';
-
+import { DICTIONARY } from '@data';
+import { cleanAudioQueue } from '@utils/clean-audio-queue';
+import { getRoundsData } from '@services/data.service';
 import {
   IAppState,
   IHandleClickAudioPlaying,
   IRoundData,
-} from '../../helpers/interfaces';
+} from '@types';
+import { MAX_ROUND_POINTS, SOUND_PATHS } from '@constants';
+import { StartPage } from '@pages/Start';
+import { EndPage } from '@pages/End';
+import { PlayPage } from '@pages/Play';
 
-class App extends React.Component {
+export class App extends React.Component {
   initialState: IAppState = {
     isPlaying: false,
     isGameEnded: false,
@@ -38,7 +32,7 @@ class App extends React.Component {
 
   get maximumScore(): number {
     const { roundsData } = this.state;
-    return roundsData.length * maximumAwardForRound;
+    return roundsData.length * MAX_ROUND_POINTS;
   }
 
   pauseAllShowsAudio = (): void => {
@@ -73,7 +67,7 @@ class App extends React.Component {
       this.UIAudioQueue = cleanAudioQueue(this.UIAudioQueue);
     }
 
-    const { success, fail } = soundPath;
+    const { success, fail } = SOUND_PATHS;
     const fileName = isAnswerRight ? success : fail;
     const audioPath = `${process.env.PUBLIC_URL}/ui-sounds/${fileName}.mp3`;
     const audioElement = new Audio(audioPath);
@@ -190,7 +184,7 @@ class App extends React.Component {
   };
 
   render(): React.ReactNode {
-    const { title, subtitle } = constants;
+    const { title, subtitle } = DICTIONARY;
     const {
       isPlaying,
       isGameEnded,
@@ -236,5 +230,3 @@ class App extends React.Component {
     );
   }
 }
-
-export { App };

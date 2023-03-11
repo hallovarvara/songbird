@@ -1,16 +1,15 @@
 import React from 'react';
-
-import { constants } from '../../helpers/constants';
-import unguessedImage from '../../assets/images/unguessed.svg';
-import { AudioPlayer } from '../basic/AudioPlayer';
-import { IQuestion, IShow } from '../../helpers/interfaces';
-import Button from '../basic/Button';
-import { getImagePath } from '../../helpers/utils/get-image-path';
-import { getAudioPath } from '../../helpers/utils/get-audio-path';
+import { IQuestion, IShow } from '@types';
+import { DICTIONARY } from '@data';
+import { getImagePath } from '@utils/get-image-path';
+import { getAudioPath } from '@utils/get-audio-path';
+import { Button } from '@components/Button';
+import { AudioPlayer } from '@components/AudioPlayer';
+import unguessedImagePath from '@assets/images/unguessed.svg';
 
 const getRoundData = (data: IShow, isGuessed: boolean) => {
   let roundData = {
-    imagePath: unguessedImage,
+    imagePath: unguessedImagePath,
     audioPath: getAudioPath(data.path),
     title: '***',
   };
@@ -32,7 +31,7 @@ export const Question: React.FC<IQuestion> = ({
   handleClickToNextRound,
   handleShowAudioPlaying,
 }) => {
-  const { nextQuestion } = constants;
+  const { nextQuestion } = DICTIONARY;
   const { imagePath, audioPath, title } = getRoundData(answer, isGuessed);
 
   const posterStyles = {

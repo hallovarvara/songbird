@@ -1,6 +1,6 @@
-import { categories } from '../constants';
+import { IObjectOfStrings } from '@types';
 
-export const getShowsCategories = () =>
+export const getShowsCategories = (categories: IObjectOfStrings[]) =>
   categories.reduce(
     (result, { id, title }) => ({
       ...result,

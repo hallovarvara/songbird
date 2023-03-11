@@ -1,20 +1,18 @@
 import React from 'react';
-
-import { IPlayPage, IShow } from '../../helpers/interfaces';
-import { Header } from '../../components/Header';
-import { GameProgress } from '../../components/GameProgress';
-import { Question } from '../../components/Question';
-import { AnswersList } from '../../components/AnswersList';
-import { ShowInfo } from '../../components/ShowInfo';
-
-import { constants } from '../../helpers/constants';
+import { IPlayPage, IShow } from '@types';
+import { DICTIONARY } from '@data';
+import { Header } from '@components/Header';
+import { GameProgress } from '@components/GameProgress';
+import { Question } from '@components/Question';
+import { AnswersList } from '@components/AnswersList';
+import { ShowInfo } from '@components/ShowInfo';
 
 const getAnswerShow = (shows: IShow[]): IShow => {
   const [answerShow] = shows.filter((show) => show.isAnswer);
   return answerShow;
 };
 
-const PlayPage: React.FC<IPlayPage> = ({
+export const PlayPage: React.FC<IPlayPage> = ({
   score,
   roundsData,
   handleClickToAnswer,
@@ -53,7 +51,7 @@ const PlayPage: React.FC<IPlayPage> = ({
           handleShowAudioPlaying={handleShowAudioPlaying}
         />
       ) : (
-        <p className="page_play__instruction">{constants.listenToSeeInfo}</p>
+        <p className="page_play__instruction">{DICTIONARY.listenToSeeInfo}</p>
       )}
     </div>
   );

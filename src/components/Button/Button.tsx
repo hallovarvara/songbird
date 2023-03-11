@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { IButton } from '../../../helpers/interfaces';
+import { IButton } from '@types';
 
-const Button: React.FC<IButton> = ({
+export const Button: React.FC<IButton> = ({
   label,
   handleClick,
   classes = '',
@@ -17,5 +17,3 @@ const Button: React.FC<IButton> = ({
     {label}
   </button>
 );
-
-export default Button;
