@@ -1,7 +1,7 @@
 import React from 'react';
-import { IScore } from '../../helpers/types';
-import { WORD_SETS } from '../../helpers/data';
-import { getQuantityString } from '../../helpers/utils/get-quantity-string';
+import { IScore } from '@types';
+import { WORD_SETS } from '@data';
+import { getQuantityString } from '@utils/get-quantity-string';
 
 export const Score = ({ score }: IScore) => (
   <div className="score">

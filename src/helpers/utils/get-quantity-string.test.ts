@@ -1,5 +1,5 @@
-import { getQuantityString } from './get-quantity-string';
-import { WORD_SETS } from '../data';
+import { WORD_SETS } from '@data';
+import { getQuantityString } from '@utils/get-quantity-string';
 
 const wordSet = WORD_SETS.points;
 

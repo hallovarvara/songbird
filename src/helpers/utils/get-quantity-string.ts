@@ -1,4 +1,4 @@
-import { TWordSet } from '../types';
+import { TWordSet } from '@types';
 
 export const getQuantityString = (
   quantity: number,

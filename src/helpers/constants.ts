@@ -1,4 +1,4 @@
-import { IObjectOfStrings } from './types';
+import { IObjectOfStrings } from '@types';
 
 export const DEFAULT_QUESTIONS_COUNT = 6;
 export const MAX_ROUND_POINTS = 5;

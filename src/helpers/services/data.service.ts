@@ -1,7 +1,7 @@
-import { getRandomNumber } from './utils/get-random-number';
-import { CATEGORIES, TV_SHOWS } from './data';
-import { IObjectOfStrings, IRoundData } from './types';
-import { DEFAULT_QUESTIONS_COUNT, MAX_ROUND_POINTS } from './constants';
+import { getRandomNumber } from '@utils/get-random-number';
+import { CATEGORIES, TV_SHOWS } from '@data';
+import { DEFAULT_QUESTIONS_COUNT, MAX_ROUND_POINTS } from '@constants';
+import { IObjectOfStrings, IRoundData } from '@types';
 
 export const getShowsByCategory = (category: string): IObjectOfStrings[] =>
   TV_SHOWS.filter((show) => show.category === category);

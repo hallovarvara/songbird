@@ -1,20 +1,18 @@
 import React from 'react';
-
-import { DICTIONARY } from '../../helpers/data';
-import { getRoundsData } from '../../helpers/dataService';
-import { cleanAudioQueue } from '../../helpers/utils/clean-audio-queue';
-import StartPage from '../../pages/Start';
-import EndPage from '../../pages/End';
-import PlayPage from '../../pages/Play';
-
+import { DICTIONARY } from '@data';
+import { cleanAudioQueue } from '@utils/clean-audio-queue';
+import { getRoundsData } from '@services/data.service';
 import {
   IAppState,
   IHandleClickAudioPlaying,
   IRoundData,
-} from '../../helpers/types';
-import { MAX_ROUND_POINTS, SOUND_PATHS } from '../../helpers/constants';
+} from '@types';
+import { MAX_ROUND_POINTS, SOUND_PATHS } from '@constants';
+import { StartPage } from '@pages/Start';
+import { EndPage } from '@pages/End';
+import { PlayPage } from '@pages/Play';
 
-class App extends React.Component {
+export class App extends React.Component {
   initialState: IAppState = {
     isPlaying: false,
     isGameEnded: false,
@@ -232,5 +230,3 @@ class App extends React.Component {
     );
   }
 }
-
-export { App };

@@ -1,8 +1,8 @@
 import React from 'react';
-import { DICTIONARY } from '../../helpers/data';
-import { IAnswersList } from '../../helpers/types';
-import { handleClassnames } from '../../helpers/utils/handle-classnames';
-import Button from '../basic/Button';
+import { DICTIONARY } from '@data';
+import { IAnswersList } from '@types';
+import { handleClassnames } from '@utils/handle-classnames';
+import { Button } from '@components/Button';
 
 export const AnswersList: React.FC<IAnswersList> = ({
   shows,

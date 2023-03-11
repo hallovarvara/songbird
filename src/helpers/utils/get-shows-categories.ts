@@ -1,4 +1,4 @@
-import { IObjectOfStrings } from '../types';
+import { IObjectOfStrings } from '@types';
 
 export const getShowsCategories = (categories: IObjectOfStrings[]) =>
   categories.reduce(

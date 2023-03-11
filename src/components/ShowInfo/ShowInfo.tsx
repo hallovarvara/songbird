@@ -1,9 +1,9 @@
 import React from 'react';
-import { IShowInfo } from '../../helpers/types';
-import { handleClassnames } from '../../helpers/utils/handle-classnames';
-import { getImagePath } from '../../helpers/utils/get-image-path';
-import { getAudioPath } from '../../helpers/utils/get-audio-path';
-import { AudioPlayer } from '../basic/AudioPlayer';
+import { IShowInfo } from '@types';
+import { handleClassnames } from '@utils/handle-classnames';
+import { getImagePath } from '@utils/get-image-path';
+import { getAudioPath } from '@utils/get-audio-path';
+import { AudioPlayer } from '@components/AudioPlayer';
 
 export const ShowInfo: React.FC<IShowInfo> = ({
   show,

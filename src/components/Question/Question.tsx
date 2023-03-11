@@ -1,11 +1,11 @@
 import React from 'react';
-import { IQuestion, IShow } from '../../helpers/types';
-import unguessedImagePath from '../../assets/images/unguessed.svg';
-import { DICTIONARY } from '../../helpers/data';
-import { getImagePath } from '../../helpers/utils/get-image-path';
-import { getAudioPath } from '../../helpers/utils/get-audio-path';
-import { AudioPlayer } from '../basic/AudioPlayer';
-import Button from '../basic/Button';
+import { IQuestion, IShow } from '@types';
+import { DICTIONARY } from '@data';
+import { getImagePath } from '@utils/get-image-path';
+import { getAudioPath } from '@utils/get-audio-path';
+import { Button } from '@components/Button';
+import { AudioPlayer } from '@components/AudioPlayer';
+import unguessedImagePath from '@assets/images/unguessed.svg';
 
 const getRoundData = (data: IShow, isGuessed: boolean) => {
   let roundData = {

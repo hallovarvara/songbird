@@ -1,17 +1,17 @@
-import { IObjectOfStrings } from '../../types';
+import { IObjectOfStrings } from '@types';
 
 export const DICTIONARY: IObjectOfStrings = {
   logo: 'Logo',
   chooseAnswer: 'Pick TV Show',
   title: 'Guess TV Show',
   subtitle: 'by soundtrack',
-  startGame: 'Start the game',
+  startGame: 'Play game',
   startNewGame: 'Start a new game',
   currentQuestion: 'current round',
   nextQuestion: 'Continue',
   answersListTitle:
     'From which TV series is the soundtrack playing in the player above?',
-  sumUp: 'You got {points} {pointsWord} from {maximumScore}',
+  sumUp: 'You got {points} {pointsWord} out of {maximumScore}',
   tryAgain:
     'To get maximum points and become a die-hard serial maniac, play again',
   youWin:

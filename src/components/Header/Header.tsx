@@ -1,10 +1,8 @@
 import React from 'react';
-
-import { ReactComponent as Logo } from '../../assets/images/songbird-logo.svg';
-import { Score } from '../Score';
-
-import { IHeader } from '../../helpers/types';
-import { QuestionsList } from '../QuestionsList';
+import { IHeader } from '@types';
+import { ReactComponent as Logo } from '@assets/images/songbird-logo.svg';
+import { Score } from '@components/Score';
+import { QuestionsList } from '@components/QuestionsList';
 
 export const Header: React.FC<IHeader> = ({
   score,

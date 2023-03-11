@@ -1,4 +1,4 @@
-import { IObjectOfStrings } from '../../types';
+import { IObjectOfStrings } from '@types';
 
 export const DICTIONARY: IObjectOfStrings = {
   logo: 'Лого',

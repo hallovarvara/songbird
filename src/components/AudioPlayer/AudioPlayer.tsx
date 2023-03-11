@@ -1,10 +1,8 @@
 import React, { createRef, RefObject } from 'react';
-
 import H5AudioPlayer, { RHAP_UI } from 'react-h5-audio-player';
 import 'react-h5-audio-player/lib/styles.css';
-
-import { IPlayer } from '../../../helpers/types';
-import { DEFAULT_PROGRESS_JUMP_STEP } from '../../../helpers/constants';
+import { IPlayer } from '@types';
+import { DEFAULT_PROGRESS_JUMP_STEP } from '@constants';
 
 export const AudioPlayer = ({ path = '', handleShowAudioPlaying }: IPlayer) => {
   const player: RefObject<H5AudioPlayer> = createRef();

@@ -1,5 +1,16 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@constants": ["src/helpers/constants.ts"],
+      "@data": ["src/helpers/data/index.ts"],
+      "@pages/*": ["src/pages/*"],
+      "@services/*": ["src/helpers/services/*"],
+      "@types": ["src/helpers/types.ts"],
+      "@utils/*": ["src/helpers/utils/*"]
+    },
     "target": "es5",
     "lib": [
       "dom",
@@ -19,7 +30,6 @@
     "noEmit": true,
     "jsx": "react"
   },
-  "include": [
-    "src"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

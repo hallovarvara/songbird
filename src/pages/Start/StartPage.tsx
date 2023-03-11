@@ -1,10 +1,10 @@
 import React from 'react';
-import { ReactComponent as Logo } from '../../assets/images/songbird-logo.svg';
-import { IStartPage } from '../../helpers/types';
-import { DICTIONARY } from '../../helpers/data';
-import Button from '../../components/basic/Button';
+import { IStartPage } from '@types';
+import { DICTIONARY } from '@data';
+import { ReactComponent as Logo } from '@assets/images/songbird-logo.svg';
+import { Button } from '@components/Button';
 
-const StartPage: React.FC<IStartPage> = ({ handleClick }) => {
+export const StartPage: React.FC<IStartPage> = ({ handleClick }) => {
   const { title, subtitle, startGame } = DICTIONARY;
 
   return (
@@ -19,5 +19,3 @@ const StartPage: React.FC<IStartPage> = ({ handleClick }) => {
     </div>
   );
 };
-
-export default StartPage;
